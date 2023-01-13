@@ -10,5 +10,6 @@ export default function App({ Component, pageProps }) {
         <Component {...pageProps} />
       </Provider>
     </PersistGate>
+    
   );
 }
