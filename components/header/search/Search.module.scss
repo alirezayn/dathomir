@@ -1,0 +1,19 @@
+@import '../../../styles/mediaQuery.scss';
+.inputSearch{
+    position: absolute;
+    width: 90%;
+    border: none;
+    height: 50%;
+    border-radius: 15px;
+    padding-right: 30px;
+    outline: none;
+    color: #1d3557;
+}
+.inputSearch::placeholder{
+    color: #1d3557;
+}
+.icon{
+    position: absolute;
+    right: 8px;
+    top: 40%;
+}

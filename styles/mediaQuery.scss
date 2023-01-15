@@ -1,0 +1,36 @@
+$xSmall:300px;
+$small:576px;
+$medium:768px;
+$large:992px;
+$xLarge:1200px;
+$xxLarge:1400px;
+@media only screen and (min-width:$xSmall) and (max-width:$small) {
+    .hideXsmall{
+        display: none;
+    }
+    
+}
+@media only screen and (min-width:$small) and (max-width:$medium) {
+    .hideSmall{
+        display: none;
+    }
+    
+}
+@media only screen and (min-width:$medium) and (max-width:$large) {
+    .hideMedium{
+        display: none;
+    }
+    
+}
+@media only screen and (min-width:$large) and (max-width:$xLarge) {
+    .hideLarge{
+        display: none;
+    }
+    
+}
+@media only screen and (min-width:$large) and (max-width:$xLarge) {
+    .hideXlarge{
+        display: none;
+    }
+    
+}
