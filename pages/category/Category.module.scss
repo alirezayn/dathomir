@@ -1,0 +1,16 @@
+.mainContainer{
+    display: flex;
+    width: 100%;
+    margin-top: 100px;
+    .leftContainer{
+        flex-direction: row;
+        width: 30%;
+    } 
+    .rightContainer{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        width: 70%;
+        background-color: #e9e9e9a7;
+    }
+}

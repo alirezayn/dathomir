@@ -1,11 +1,24 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import MainSlider from '@/components/mainSlider/MainSlider';
-import styles from './index.module.scss';
-export default function Home() {
+import IncredibleOffer from '@/components/incredibleOffer/IncredibleOffer';
+import Categories from '@/components/categories/Categories';
+import DailyOffer from '@/components/dailyOffer/DailyOffer';
+export default function Home(props) {
   return (
     <>
+    <Head>
+      <title>
+        bESTShop
+      </title>
+    </Head>
+    <main>
       <MainSlider />
+      <Categories />
+      <IncredibleOffer />
+      <DailyOffer />
+    </main>
     </>
   )
 }
+
+
