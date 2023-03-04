@@ -24,7 +24,7 @@ const DailyOffer = () => {
         return(
           <div className={`${styles.dailyCards}`} key={item.id}>
             <Link href={''}>
-              <h5>{item.name.substring(0,40)}{'...'}</h5>
+              {item.name.substring(0,40)}{'...'}
             </Link>
           </div>
         )

@@ -10,6 +10,7 @@ import { FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, R
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "thunk";
 import logger from "redux-logger";
+import { hydrate } from "react-dom";
 
 
 const rootReducer = combineReducers({
@@ -34,6 +35,6 @@ export const Store = configureStore(
       }
     })
   },
-  composeWithDevTools(applyMiddleware(thunk)));
+ composeWithDevTools(applyMiddleware(thunk)));
 
 export const persistor = persistStore(Store);

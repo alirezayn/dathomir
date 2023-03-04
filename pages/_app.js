@@ -6,13 +6,15 @@ import { PersistGate } from "redux-persist/integration/react";
 
 export default function App({ Component, pageProps }) {
   return (
-    <PersistGate loading="null" persistor={persistor}>
-      <Provider store={Store}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </Provider>
-    </PersistGate>
-    
+    <PersistGate persistor={persistor} loading={<div>loading</div>}>
+    {()=>(
+           <Provider store={Store}>
+         <Layout>
+           <Component {...pageProps} />
+         </Layout>
+         </Provider>
+      )}
+      </PersistGate>
+     
   );
 }
