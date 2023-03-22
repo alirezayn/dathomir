@@ -1,19 +1,24 @@
-import SingleProduct from "@/components/SingleProduct/SingleProduct";
-import { useRouter } from "next/router";
+import AddToCart from "@/components/addToCart/AddToCart";
+import SingleContent from "@/components/SingleContent/SingleContent";
+import SingleImageSlider from "@/components/SingleContent/singleImageSlider/SingleImageSlider";
 import React from "react";
 import * as api from "../../api/api";
+import styles from "./singleProducts.module.scss";
 const SingleProducts = (props) => {
-  const route = useRouter()
-  const singleProductsMap = route;
-  console.log(singleProductsMap)
   return (
-    <>
-      <SingleProduct 
-      name={props.name}
-      description={props.des} 
-      
+    <div className={`${styles.mainContainer}`}>
+      <div className={`${styles.rightContainer}`}>
+      <SingleImageSlider name={props.data.name} images={props.data.images} />
+      </div>
+      <div className={`${styles.leftContainer}`}>
+
+      </div>
+      <SingleContent
+        name={props.data.name}
+        description={props.data.description}
       />
-    </>
+      <AddToCart product={props.data} />
+    </div>
   );
 };
 
@@ -27,8 +32,7 @@ export const getServerSideProps = async (context) => {
     singleProductsData = await singleProductsData.data;
     return {
       props: {
-        name: singleProductsData.name,
-        des: singleProductsData.description,
+        data: singleProductsData,
       },
     };
   } catch {

@@ -7,7 +7,6 @@ import styles from "./Category.module.scss";
 const category = (props) => {
   const route = useRouter();
   const siteMap = route.query.category;
-  console.log(route)
   return (
     <>
       <Head>

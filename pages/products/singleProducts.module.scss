@@ -1,0 +1,11 @@
+.mainContainer{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 15px;
+    .rightContainer{
+        width: 40%;
+    }
+    .leftContainer{
+        width: 50%;
+    }
+}
