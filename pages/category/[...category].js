@@ -4,14 +4,14 @@ import { useRouter } from "next/router";
 import React from "react";
 import * as api from "../../api/api";
 import styles from "./Category.module.scss";
-const category = (props) => {
+const category = ({data}) => {
   const route = useRouter();
   const siteMap = route.query.category;
   return (
     <>
       <Head>
-        <title>{props.name}</title>
-        <meta property="og:title" content={props.name} key="title" />
+        <title>{data.products.name}</title>
+        <meta property="og:title" content={data.products.name} key="title" />
       </Head>
       
       {siteMap.map((item, index) => (
@@ -21,7 +21,7 @@ const category = (props) => {
       ))}
       <div className={`${styles.mainContainer}`}>
         <div className={`${styles.rightContainer}`}>
-          {props.products.map((item) => {
+          {data.products.map((item) => {
             return <Card products={item} key={item.id} />;
           })}
         </div>
@@ -37,8 +37,9 @@ export const getServerSideProps = async (context) => {
   try {
     const url = await api.GET(`products/category/${context.params.category}`);
     const response = await url.data;
+    console.log(response)
     return {
-      props: response,
+      props: {data:response},
     };
   } catch {
     return {
