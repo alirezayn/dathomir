@@ -28,11 +28,13 @@ const MainSlider = () => {
         {data.map((item) => {
           return (
             <Image
+            className={`${styles.image}`}
               src={item.original}
               alt={`image ${item.id}`}
               key={item.id}
               width={1600}
               height={333}
+              priority={true}
             />
           );
         })}

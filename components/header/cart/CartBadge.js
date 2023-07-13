@@ -1,10 +1,23 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 
-const CartBadge = () => {
-  const length = useSelector(state=>state.cart.length)
+const CartBadge = ({count}) => {
     return (
-    <span>{length}</span>
+    <span style={{
+      position:"absolute",
+      right:"0",
+      bottom:"5px",
+      display:"flex",
+      alignItems:"center",
+      justifyContent:"center",
+      width:"18px",
+      height:"18px",
+      borderRadius:"5px",
+      backgroundColor:"red",
+      color:"white",
+      fontSize:"small"
+    }} >
+      {count}
+    </span>
   )
 }
 

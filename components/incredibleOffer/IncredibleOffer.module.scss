@@ -1,7 +1,22 @@
 .mainContainer{
     width: 95%;
-    margin: 15px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 8px;
-    // overflow: hidden;
-
+    background-color: #db4a57;
+    margin: 15px auto;
+    .rightBox{
+        width: 200px;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-evenly;
+        .link{
+            text-decoration: none;
+            color: white;
+            text-shadow:0 0 3px #c5c5c5;
+        }
+    }
 }

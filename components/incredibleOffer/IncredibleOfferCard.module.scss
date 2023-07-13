@@ -1,0 +1,14 @@
+.mainCard{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    width: 200px;
+    height: 280px;
+    background-color: white;
+    margin: auto;
+    .image{
+        width: auto !important;
+        height: auto !important;
+    }
+}

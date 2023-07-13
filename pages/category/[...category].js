@@ -6,12 +6,13 @@ import * as api from "../../api/api";
 import styles from "./Category.module.scss";
 const category = ({data}) => {
   const route = useRouter();
+  console.log(data)
   const siteMap = route.query.category;
   return (
     <>
       <Head>
-        <title>{data.products.name}</title>
-        <meta property="og:title" content={data.products.name} key="title" />
+        <title>{data.name}</title>
+        <meta property="og:title" content={data.name} key="title" />
       </Head>
       
       {siteMap.map((item, index) => (
@@ -25,7 +26,7 @@ const category = ({data}) => {
             return <Card products={item} key={item.id} />;
           })}
         </div>
-        <div className={`${styles.leftContainer}`}></div>
+       
       </div>
     </>
   );
@@ -37,7 +38,6 @@ export const getServerSideProps = async (context) => {
   try {
     const url = await api.GET(`products/category/${context.params.category}`);
     const response = await url.data;
-    console.log(response)
     return {
       props: {data:response},
     };

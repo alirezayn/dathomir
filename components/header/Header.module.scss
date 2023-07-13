@@ -7,8 +7,9 @@
     @extend .alignCenter;
     height: 80px;
     width: 100%;
-    box-shadow: 0px 0px 2px $primaryColor;
+    // box-shadow: 0px 0px 2px $primaryColor;
     background-color: $backgroundColor;
+    margin-top: 57px;
     .rightContainer{
         @extend .flex;
         @extend .alignCenter;
@@ -23,7 +24,7 @@
     .leftContainer{
         @extend .spaceAround;
         @extend .alignCenter;
-        width: 10%;
+        width: 15%;
         height: 100%;
         i{
             font-size: 32px;

@@ -2,12 +2,13 @@ import React from "react";
 import { RiSearch2Line } from "react-icons/ri";
 import styles from "./Search.module.scss";
 import { useRouter } from "next/router";
+import Link from "next/link";
 const Search = () => {
-  const router = useRouter()
+  const router = useRouter();
   const inputSearch = (e) => {
-   if (e.key ==='Enter'){
-     router.push(`search/${e.target.value}`)
-   }
+    if (e.key === "Enter") {
+      router.push(`search/${e.target.value}`);
+    }
   };
 
   return (
@@ -18,11 +19,13 @@ const Search = () => {
         placeholder={"جستجو..."}
         onClick={inputSearch}
       />
-      <i className={`
+      <i
+        className={`
       ${styles.icon}
       ${styles.hideSmall} 
       ${styles.hideXsmall}
-      `}>
+      `}
+      >
         <RiSearch2Line />
       </i>
     </>

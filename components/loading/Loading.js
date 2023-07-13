@@ -1,4 +1,4 @@
-import { requestProduct } from "@/redux/reducer/StoreReducer";
+import { requestProduct } from "@/redux/features/StoreReducer";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";

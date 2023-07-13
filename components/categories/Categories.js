@@ -24,7 +24,7 @@ const Categories = () => {
         return (
           <div className={`${styles.cards}`} key={item.id}>
             <Link href={`/category/${item.name}`} className={`${styles.link}`}>
-              <h3>{item.name}</h3>
+              {item.name}
             </Link>
           </div>
         );
