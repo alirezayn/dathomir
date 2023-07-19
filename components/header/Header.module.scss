@@ -5,30 +5,91 @@
     @extend .flex;
     @extend .spaceAround;
     @extend .alignCenter;
-    height: 80px;
+    height:auto;
     width: 100%;
     // box-shadow: 0px 0px 2px $primaryColor;
+    flex-direction: column;
     background-color: $backgroundColor;
-    margin-top: 57px;
-    .rightContainer{
-        @extend .flex;
-        @extend .alignCenter;
-        position: relative;
-        width: 30%;
-        height: 100%;
-    }
-    .middleContainer{
-        height: 100%;
-        width: 50%;
-    }
-    .leftContainer{
-        @extend .spaceAround;
-        @extend .alignCenter;
-        width: 15%;
-        height: 100%;
-        i{
-            font-size: 32px;
-            color: $primaryColor;
+    // margin-bottom: 57px;
+    .row{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+        height: auto;
+        
+        .rightContainer{
+            @extend .flex;
+            @extend .alignCenter;
+            height: 100%;
+            width: 30%;
+            .menuBox{
+                display: none;
+            }
+            
+        }
+        .middleContainer{
+            display: flex;
+            align-items: center;
+            position: relative;
+            height: 100%;
+            width: 50%;
+        }
+        .leftContainer{
+            @extend .spaceAround;
+            @extend .alignCenter;
+            width: 15%;
+            height: 100%;
+            i{
+                font-size: 32px;
+                color: $primaryColor;
+            }
         }
     }
+    }
+@media only screen and (min-width:300px) and (max-width:1024px) {
+    .leftContainer{
+        width: 30% !important;
+        justify-content: flex-end !important;
+        padding-left: 15px;
+        order: 3;
+    }
+  .middleContainer{
+    display: none !important;
+  }
+
+    .rightContainer{
+        width: 30% !important;
+        order: 1;
+        .menuBox{
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            font-size: x-large;
+            width: 60px;
+            height: 30px;
+            color: #918d8d;
+            border-radius: 5px;
+            transition: .5s;
+        } 
+        .menuBox:hover{
+            background-color: #e4e2e2bd;
+            color: black;
+            transition: .5s;
+        }
+    }
+    .bestShop{
+        order: 2;
+    }
+}
+@font-face {
+    font-family: segoe-ui-scripts;
+    src: url('/Font/segoesc.ttf');
+}
+.bestShop{
+    
+    font-family: segoe-ui-scripts;
+    color: #7726c4;
+    font-size: x-large;
+    text-decoration: none;
 }

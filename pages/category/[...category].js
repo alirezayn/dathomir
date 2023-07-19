@@ -6,7 +6,6 @@ import * as api from "../../api/api";
 import styles from "./Category.module.scss";
 const category = ({data}) => {
   const route = useRouter();
-  console.log(data)
   const siteMap = route.query.category;
   return (
     <>
@@ -21,7 +20,7 @@ const category = ({data}) => {
         </span>
       ))}
       <div className={`${styles.mainContainer}`}>
-        <div className={`${styles.rightContainer}`}>
+        <div className={`${styles.leftContainer}`}>
           {data.products.map((item) => {
             return <Card products={item} key={item.id} />;
           })}

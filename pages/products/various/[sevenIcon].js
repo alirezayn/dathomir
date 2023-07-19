@@ -2,14 +2,21 @@ import React from 'react'
 import * as api from '../../../api/api'
 import Card from '@/components/card/Card'
 import styles from './sevenIcon.module.scss'
-const sevenIcon= ({data}) => {
+import Head from 'next/head'
+const sevenIcon= ({data,context}) => {
     console.log(data)
   return (
+    <>
+    <Head>
+        <title>{context}</title>
+    </Head>
+
     <div className={`${styles.mainContainer}`}>
         {data.map(item=>{
             return <Card products={item} key={item.id}/>
         })}
     </div>
+        </>
   )
 }
 
@@ -22,7 +29,8 @@ export const getServerSideProps = async (context)=>{
     if(response){
         return{
             props:{
-                data:response
+                data:response,
+                context:context.params.sevenIcon
             }
         }
     }else{

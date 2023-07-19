@@ -10,33 +10,42 @@ const Card = ({ products }) => {
   return (
     <div className={`${styles.card}`}>
       <Link href={`/products/${products.name}`} className={`${styles.link}`}>
-        <IncredibleOfferBadge />
-        <Image
-          className={`${styles.image}`}
-          src={products.indexImageUrl}
-          alt={products.name}
-          width={100}
-          height={100}
-        />
-        <h6>
-          {products.name.substring(0, 60)}
-          {"..."}
-        </h6>
-        {products.stock === 0 ? (
-          <span>ناموجود</span>
-        ) : (
-          <>
-            {products.priceWithDiscount == 0 ? (
-              <span>{products.price}</span>
-              
-            ) : (
-              <>
-              <span style={{textDecoration:"line-through",color:"red"}}>{products.price}</span>
-              <span>{products.priceWithDiscount}</span>
-              </>
-            )}
-          </>
-        )}
+        <div className={`${styles.topCard}`}>
+          <IncredibleOfferBadge />
+        </div>
+        <div className={`${styles.middleCard}`}>
+          <Image
+            className={`${styles.image}`}
+            src={products.indexImageUrl}
+            alt={products.name}
+            width={100}
+            height={100}
+          />
+        </div>
+        <div className={`${styles.bottomCard}`}>
+          <h6>
+            {products.name.substring(0, 60)}
+            {"..."}
+          </h6>
+          {products.stock === 0 ? (
+            <span>ناموجود</span>
+          ) : (
+            <>
+              {products.priceWithDiscount == 0 ? (
+                <span>{products.price}</span>
+              ) : (
+                <>
+                  <span
+                    style={{ textDecoration: "line-through", color: "red" }}
+                  >
+                    {products.price}
+                  </span>
+                  <span>{products.priceWithDiscount}</span>
+                </>
+              )}
+            </>
+          )}
+        </div>
       </Link>
     </div>
   );

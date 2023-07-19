@@ -1,7 +1,7 @@
 .mainContainer{
     display: flex;
     width: 90%;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     margin: 0 auto;
     height: auto;
@@ -9,22 +9,23 @@
         width: 316px;
         height: 214px;
         display: flex;
-        margin: 5px;
+        flex: 8 5 35%;
+        margin: 3px 5px;
         border-radius: 5px;
         box-sizing: border-box;
         padding: 15px;
-        justify-content: space-around;
+        justify-content: center;
         .link{
             width: 100%;
             color: black ;
             text-decoration: none;
             font-size: larger;
-            font-weight: bolder;
+            font-weight: lighter;
         }
     }
     .cards:nth-child(1){
         background-image: url('/images/mobile.jpg');
-        // object-fit: cover;
+        object-fit: cover;
     }
     .cards:nth-child(2){
         background-color: #3a506b;

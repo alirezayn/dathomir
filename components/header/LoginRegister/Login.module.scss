@@ -16,3 +16,8 @@
         font-size: large;
     }
 }
+@media only screen and (max-width:600px) {
+    .mainContainer{
+        display: none !important;
+    }
+}

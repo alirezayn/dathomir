@@ -11,7 +11,8 @@ const TopBanner = ({ image, id, url }) => {
           // style={{ width: "auto", height: "auto" }}
           key={id}
           alt="topbanner"
-          fill
+          width={1600}
+          height={57}
         />
       )}
     </>

@@ -38,12 +38,13 @@ const CartFill = ({ items }) => {
               </div>
               <div className={`${styles.leftItemContainer}`}>
                 <h4>{item.name}</h4>
-                    {data.map(item=>{
-                        return <>
-                            <h6><IoIosColorPalette style={{marginLeft:"10px"}}/> {item.color} </h6>
-                            <h6><BsShieldFillCheck style={{marginLeft:"10px"}} />{item.guarantee}</h6>
-                            <h6><MdInventory style={{marginLeft:"10px", color:"#369aec"}}/>{item.inventory}</h6>
-                        </>
+                    {data.map((item,index)=>{
+                        return (
+                        <div key={index}>
+                            <h6><IoIosColorPalette /> {item.color} </h6>
+                            <h6><BsShieldFillCheck  />{item.guarantee}</h6>
+                            <h6><MdInventory />{item.inventory}</h6>
+                        </div>)
                     })}
 
               </div>

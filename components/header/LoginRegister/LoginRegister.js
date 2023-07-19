@@ -13,7 +13,7 @@ const LoginRegister = () => {
           <span>خوش آمدید {user_profile.username}</span>
         </Link>
       ) : (
-        <Link href={"/user/register"} className={`${styles.mainContainer}`}>
+        <Link href={"/user/login"} className={`${styles.mainContainer}`}>
           <IoLogInOutline className={`${styles.icon}`} />
           <span>ورود | ثبت نام</span>
         </Link>
