@@ -1,5 +1,5 @@
 import {
-  addFromLocalStorage,
+  
   addToCart,
   decrease,
   increase,

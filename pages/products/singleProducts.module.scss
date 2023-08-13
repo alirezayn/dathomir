@@ -2,17 +2,95 @@
     display: flex;
     flex-wrap: wrap;
     margin: 15px;
+    height: auto !important;
     .rightContainer{
-        width: 40%;
+        width: 30%;
         margin: 0 auto;
     }
     .leftContainer{
-        width: 50%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 70%;
+        .rightBox{
+            width: 65%;
+            height: 90%;
+            padding:30px  0px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            h1{
+                font-size: medium;
+                font-weight: 700;
+                text-align: justify;
+            }
+        }
+        .leftBox{
+            height: 70%;
+            width: 30%;
+            background-color: #f7f7f7;
+            border-radius: 5px;
+            border: 1px solid #a3abb5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            // padding: 5px;
+            box-sizing: border-box;
+            .top{
+                height: 30%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                flex-direction: column;
+            }
+            .middle{
+                height: 30%;
+                width: 100%;
+                text-align: right;
+            }
+            .bottom{
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                flex-direction: column;
+                margin: 5px;
+                width: 100%;
+                height: 30%;
+
+            }
+
+
+
+        }
     }
 }
-@media only screen and (max-width:600px) {
-    .rightContainer{
-        width: 90% !important;
+@media only screen and (max-width:992px) {
+    .mainContainer{
+        height: auto;
+        .rightContainer{
+            width: 90% !important;
+        }
+        .leftContainer{
+            width: 100%;
+            height: 100%;
+            .rightBox{
+                width: 100% !important;
+            }
+            .leftBox{
+                position: fixed;
+                bottom: 0;
+                height: auto;
+                width: 100%;
+                z-index: 1000;
+                :is(.top,.middle){
+                    display: none;
+                }
+            }
+        }
     }
 
 }

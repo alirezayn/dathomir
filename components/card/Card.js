@@ -6,12 +6,15 @@ import styles from "./Card.module.scss";
 import IncredibleOfferBadge from "../incredibleOfferBadge/IncredibleOfferBadge";
 import Link from "next/link";
 import AddToCart from "../addToCart/AddToCart";
+import { useRouter } from "next/router";
+import ProductPrice from "../addToCart/ProductPrice";
 const Card = ({ products }) => {
+
   return (
     <div className={`${styles.card}`}>
       <Link href={`/products/${products.name}`} className={`${styles.link}`}>
         <div className={`${styles.topCard}`}>
-          <IncredibleOfferBadge />
+          {products.incredibleOffers == true ? <IncredibleOfferBadge /> : null}
         </div>
         <div className={`${styles.middleCard}`}>
           <Image
@@ -30,6 +33,7 @@ const Card = ({ products }) => {
           {products.stock === 0 ? (
             <span>ناموجود</span>
           ) : (
+            // <ProductPrice price={products.price} discount={products.priceWithDiscount} />
             <>
               {products.priceWithDiscount == 0 ? (
                 <span>{products.price}</span>

@@ -12,12 +12,11 @@ import { RxHamburgerMenu } from "react-icons/rx";
 const Header = () => {
   const [data, setData] = useState({});
   const [show, setShow] = useState(false);
-
-
   const navigationShowHandler = () => {
     show == true ? setShow(false) : setShow(true);
-    console.log(show)
+
   };
+  
   useEffect(() => {
     const topBanner = async () => {
       const req = await api.GET("topBanner");
@@ -25,16 +24,18 @@ const Header = () => {
       setData(res);
     };
     topBanner();
+   
+     
   }, []);
   return (
-    <div className={`${styles.mainContainer}`}>
-      <div>
+    <div className={`${styles.mainContainer}`} >
+      <div style={{width:"100%"}}>
         <TopBanner image={data.imageUrl} id={data.id} url={data.url} />
       </div>
-      <div className={`${styles.row}`}>
-          <Link href={"/"} className={`${styles.bestShop}`}>
-            bestshop
-          </Link>
+      <div className={`${styles.row}`} >
+        <Link href={'/'} className={`${styles.bestShop}`}>
+          bestshop
+        </Link>
         <div className={`${styles.rightContainer}`}>
           <div className={`${styles.menuBox}`}> 
             <RxHamburgerMenu

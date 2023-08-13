@@ -9,13 +9,6 @@ import SevenIcons from "@/components/sevenIcons/SevenIcons";
 
 
 export default function Home({icons}) {
-  // const cart = useSelector(state=>state.cart)
-  // useEffect(() => {
-  //   const getFromLocalStorage = JSON.parse(localStorage.getItem('cart'))
-  //   if(cart.length == 0 && getFromLocalStorage){
-  //     getFromLocalStorage.map(item=> dispatch(addFromLocalStorage(item)))
-  //   }
-  // });
   return (
     <>
       <Head>

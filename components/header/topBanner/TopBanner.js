@@ -8,11 +8,11 @@ const TopBanner = ({ image, id, url }) => {
         <Image
           className={`${styles.image}`}
           src={image}
-          // style={{ width: "auto", height: "auto" }}
           key={id}
           alt="topbanner"
-          width={1600}
+          width={1500}
           height={57}
+          priority={true}
         />
       )}
     </>

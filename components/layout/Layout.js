@@ -11,8 +11,10 @@ const Layout = ({ children }) => {
   const router = useRouter();
   const registerPath = "/user/register"
   const loginPath = "/user/login"
-  const [show, setShow] = useState()
+  const [show, setShow] = useState(true)
+  
 
+  
   const dispatch = useDispatch();
   useEffect(() => {
     if (localStorage.getItem("cart")) {
@@ -22,11 +24,11 @@ const Layout = ({ children }) => {
     if (Cookies.get("token")) {
       dispatch(addTokenFromLocalStorage());
     }
+    
   }, [1]);
   return (
     <>
-      
-      {router.pathname == registerPath || router.pathname == loginPath ? null : <Header />}
+      {router.pathname == registerPath || router.pathname == loginPath ? null : show ? <Header /> : null}
       {children}
       {router.pathname == registerPath || router.pathname == loginPath   ? null : <Footer />}
     </>

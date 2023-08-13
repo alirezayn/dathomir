@@ -6,6 +6,7 @@ const { cartReducer } = require("../features/StoreReducer");
 import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
 import { productReducer, userReducer } from "../features/UserReducer"
+import { dynamicReducer } from "../features/DynamicReducer";
 
 // export const rootReducer = combineReducers({
 //   cart: cartReducer,
@@ -22,7 +23,8 @@ import { productReducer, userReducer } from "../features/UserReducer"
 export const store = configureStore({
   reducer: {
     cart:cartReducer,
-    user:userReducer
+    user:userReducer,
+    route:dynamicReducer
   },
   // middleware: (getDefaultMiddleware) => {
   //   return getDefaultMiddleware({

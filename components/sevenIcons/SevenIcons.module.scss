@@ -1,7 +1,7 @@
 .mainContainer{
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
     height: auto;
     margin: 15px auto;
     flex-wrap: wrap;
@@ -10,8 +10,6 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-around;
-        flex: 1 0 21%;
         text-decoration: none;
         color: black;
         font-weight: lighter;

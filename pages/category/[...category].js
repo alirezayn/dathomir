@@ -16,7 +16,7 @@ const category = ({data}) => {
       
       {siteMap.map((item, index) => (
         <span key={index}>
-          {item} {"/"}
+         {'bestshop/'}{item}{"/"}
         </span>
       ))}
       <div className={`${styles.mainContainer}`}>

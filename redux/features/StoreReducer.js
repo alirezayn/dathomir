@@ -1,10 +1,4 @@
 const { createSlice } = require("@reduxjs/toolkit")
-const INITIAL_STATE = {
-  cart:[],
-  totalCart:0,
-  cartAmount:0,
-}
-
 
 
 const cartSlice = createSlice({

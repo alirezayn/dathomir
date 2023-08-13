@@ -1,15 +1,14 @@
 .mainContainer{
     display: flex;
-    width: 90%;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+    width: 80%;
+    justify-content: space-around;
+    // flex-wrap: wrap;
     margin: 0 auto;
     height: auto;
     .cards{
-        width: 316px;
+        width: 25%;
         height: 214px;
         display: flex;
-        flex: 8 5 35%;
         margin: 3px 5px;
         border-radius: 5px;
         box-sizing: border-box;
@@ -39,4 +38,15 @@
     .cards:nth-child(5){
         background-color: #bb3e03;
     }
+}
+@media only screen and (min-width:320px) and (max-width:992px) {
+    .mainContainer{
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: center;
+        .cards{
+            width: 35%;
+        }
+    }
+    
 }

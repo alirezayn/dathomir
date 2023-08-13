@@ -1,0 +1,39 @@
+.mainContainer{
+    cursor: pointer;
+    width: 100%;
+    height: 300px;
+    border-left: 1px solid #b6b5b5b4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding: 0px 15px;
+        .top{
+            width: auto;
+            height: 50%;
+            .image{
+                width: auto ;
+                height: auto ;
+               }
+        }
+        .middle{
+            width: auto;
+            height: 30%;
+            span{
+             font-size: small;
+            }
+        }
+        .bottom{
+            width: 100%;
+            height: 20%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            span{
+             font-size: small;
+            }
+        }
+        
+}
+

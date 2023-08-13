@@ -34,7 +34,7 @@
         height: 100vh;
         display: flex;
         flex-direction: column;
-        z-index: 1000;
+        z-index: 2000;
         top: 0;
         transition: .5s;
     }
@@ -48,7 +48,7 @@
     }
     .transparentDiv{
         position: fixed;
-        z-index: 1000;
+        z-index: 2000;
         top: 0;
         width: 70%;
         height: 100vh;

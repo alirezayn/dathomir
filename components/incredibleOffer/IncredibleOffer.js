@@ -17,15 +17,16 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/css/navigation";
+import "swiper/css/free-mode";
 
 // import required modules
-import { Navigation } from "swiper";
+import { FreeMode, Navigation } from "swiper";
 import IncerdibleofferCard from "./IncredibleofferCard";
 import Image from "next/image";
 import Link from "next/link";
 
 const IncredibleOffer = () => {
+
   const [data, setData] = useState([]);
   useEffect(() => {
     const incredibleUrl = async () => {
@@ -38,7 +39,62 @@ const IncredibleOffer = () => {
   }, []);
   return (
     <div className={`${styles.mainContainer}`}>
-      <div className={`${styles.rightBox}`}>
+      <Swiper
+        style={{
+          width:"95%"
+        }}
+        slidesPerView={5}
+        spaceBetween={0}
+        navigation={true}
+        freeMode={true}
+        // pagination={{
+        //   clickable: true,
+        // }}
+        breakpoints={{
+          300: {
+            slidesPerView: 1,
+            navigation:false
+          },
+          400: {
+            slidesPerView: 2,
+            navigation:false
+          },
+          500: {
+            slidesPerView: 2,
+            navigation:false
+          },
+          640: {
+            slidesPerView: 3,
+            spaceBetween: 0,
+            navigation:false
+          },
+          768: {
+            slidesPerView: 4,
+            spaceBetween: 0,
+            navigation:false
+          },
+          800: {
+            slidesPerView: 4,
+            spaceBetween: 0,
+          },
+          900: {
+            slidesPerView: 4,
+            spaceBetween: 0,
+          },
+          1000: {
+            slidesPerView: 5,
+            spaceBetween: 0,
+          },
+          1200:{
+            slidesPerView:8,
+            spaceBetween: 0,
+          }
+        }}
+        modules={[FreeMode,Navigation]}
+        className="mySwiper"
+      >
+        <SwiperSlide>
+        <div className={`${styles.rightBox}`}>
         <Image
           src={"/images/amazingTypo.png"}
           alt="پیشنهاد شگفت انگیز"
@@ -54,52 +110,7 @@ const IncredibleOffer = () => {
         />
         <Link href={'/products/incredible_offer'} className={`${styles.link}`}>مشاهده همه</Link>
       </div>
-      <Swiper
-        style={{
-          width:"85%"
-        }}
-        slidesPerView={5}
-        spaceBetween={0}
-        navigation={true}
-        // pagination={{
-        //   clickable: true,
-        // }}
-        breakpoints={{
-          300: {
-            slidesPerView: 1,
-          },
-          400: {
-            slidesPerView: 1,
-          },
-          500: {
-            slidesPerView: 1,
-          },
-          640: {
-            slidesPerView: 2,
-            spaceBetween: 0,
-          },
-          768: {
-            slidesPerView: 2,
-            spaceBetween: 10,
-          },
-          800: {
-            slidesPerView: 3,
-            spaceBetween: 10,
-          },
-          900: {
-            slidesPerView: 3,
-            spaceBetween: 0,
-          },
-          1100: {
-            slidesPerView: 4,
-          },
-          1200:{
-            slidesPerView:6
-          }
-        }}
-        modules={[Navigation]}
-        className="mySwiper"
-      >
+        </SwiperSlide>
         {data.map((item) => {
           return (
             <SwiperSlide key={item.id}>

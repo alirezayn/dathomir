@@ -3,6 +3,8 @@
     height: 400px;
     border: 1px solid #dfdddd;
     transition: .5s;
+    box-sizing: border-box;
+    padding: 0 10px;
     .link{
         height: 100%;
         text-decoration: none;

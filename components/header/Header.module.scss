@@ -9,8 +9,10 @@
     width: 100%;
     // box-shadow: 0px 0px 2px $primaryColor;
     flex-direction: column;
-    background-color: $backgroundColor;
-    // margin-bottom: 57px;
+    background-color: whitesmoke;
+    position: sticky;
+    top: 0;
+    z-index: 2500;
     .row{
         display: flex;
         align-items: center;

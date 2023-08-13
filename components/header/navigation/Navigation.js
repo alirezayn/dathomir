@@ -2,6 +2,7 @@ import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./Navigation.module.scss";
 import { IoClose } from "react-icons/io5";
+import Search from "../search/Search";
 const Navigation = ({ show, func }) => {
    const checkDispay = () =>{
     if (window.innerWidth < "1024px"){
@@ -14,6 +15,7 @@ const Navigation = ({ show, func }) => {
         className={`${styles.mainNav} ${show ? styles.show : styles.hide}`}
         onClick={checkDispay}
       >
+
         <Link className={`${styles.link}`} href={"#"}>
           محصولات
         </Link>

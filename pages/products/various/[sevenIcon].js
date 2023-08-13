@@ -3,8 +3,10 @@ import * as api from '../../../api/api'
 import Card from '@/components/card/Card'
 import styles from './sevenIcon.module.scss'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 const sevenIcon= ({data,context}) => {
-    console.log(data)
+    const route = useRouter()
+    console.log(route)
   return (
     <>
     <Head>
