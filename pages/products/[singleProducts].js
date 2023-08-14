@@ -16,7 +16,6 @@ import Link from "next/link";
 
 const SingleProducts = (props) => {
   const route = useRouter()
-  console.log(route.components.Object)
   return (
     <>
       <div className={`${styles.mainContainer}`}>

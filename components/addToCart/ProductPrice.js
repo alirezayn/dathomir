@@ -7,8 +7,8 @@ const ProductPrice = ({ price, discount }) => {
         <h5>{price}</h5>
       ) : (
         <>
-          <h6 style={{textDecoration:"line-through",opacity:".5"}}>{price}</h6>
-          <h5>{discount}</h5>
+          <h6 style={{textDecoration:"line-through",opacity:".5"}}>{price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h6>
+          <h5>{discount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h5>
           
         </>
       )}
