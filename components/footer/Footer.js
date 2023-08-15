@@ -48,13 +48,12 @@ const Footer = () => {
           </Link>
         </div>
       </div>
-      {/* <hr /> */}
       <div className={`${styles.middle}`}>
         {data
           .map((item) => {
             return (
               <div key={item.id} className={`${styles.middleText}`}>
-                <h5>{item.title.substring(0,10)}</h5>
+                <h5>{item.title.substring(0, 10)}</h5>
                 <h6>{item.body}</h6>
               </div>
             );

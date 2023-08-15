@@ -39,10 +39,10 @@ const DailyOffer = () => {
                 key={item.id}
               >
                 <div
-                 
                   className={`${styles.content}`}
                 >
                   <Image
+                    className={`${styles.image}`}
                     src={item.indexImageUrl}
                     alt={item.name}
                     width={150}

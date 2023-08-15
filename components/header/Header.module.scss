@@ -1,17 +1,22 @@
 @import '../../styles/flex.module.scss';
 @import '../../styles/mainColor.scss';
 @import '../../styles/mediaQuery.scss';
+.sticky{
+    position: sticky ;
+    top: 0
+}
+.notSticky{
+    transition: 10s
+}
+
 .mainContainer{
     @extend .flex;
     @extend .spaceAround;
     @extend .alignCenter;
     height:auto;
     width: 100%;
-    // box-shadow: 0px 0px 2px $primaryColor;
     flex-direction: column;
     background-color: whitesmoke;
-    position: sticky;
-    top: 0;
     z-index: 2500;
     .row{
         display: flex;

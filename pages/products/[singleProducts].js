@@ -80,7 +80,6 @@ export const getServerSideProps = async (context) => {
     products = await products.data;
     products.map((item) => {
       if (item.products.find((obj) => obj.name == singleProductsData.name)) {
-        console.log(item.products);
         item.products.map((item) => dataOffers.items.push(item));
         dataOffers.dynamic = item.name;
       }

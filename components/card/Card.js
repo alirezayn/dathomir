@@ -33,21 +33,21 @@ const Card = ({ products }) => {
           {products.stock === 0 ? (
             <span>ناموجود</span>
           ) : (
-            // <ProductPrice price={products.price} discount={products.priceWithDiscount} />
-            <>
-              {products.priceWithDiscount == 0 ? (
-                <span>{products.price}</span>
-              ) : (
-                <>
-                  <span
-                    style={{ textDecoration: "line-through", color: "red" }}
-                  >
-                    {products.price}
-                  </span>
-                  <span>{products.priceWithDiscount}</span>
-                </>
-              )}
-            </>
+            <ProductPrice price={products.price} discount={products.priceWithDiscount} />
+            // <>
+            //   {products.priceWithDiscount == 0 ? (
+            //     <span>{products.price}</span>
+            //   ) : (
+            //     <>
+            //       <span
+            //         style={{ textDecoration: "line-through", color: "red" }}
+            //       >
+            //         {products.price}
+            //       </span>
+            //       <span>{products.priceWithDiscount}</span>
+            //     </>
+            //   )}
+            // </>
           )}
         </div>
       </Link>

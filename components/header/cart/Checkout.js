@@ -4,17 +4,16 @@ import styles from "./checkout.module.scss";
 
 const Checkout = () => {
   const cart = useSelector((state) => state.cart);
- 
+
   const getAmount = cart.reduce(
-    (amount, item) =>
-      amount +
-      item.quantity * item.price,
-      // item.quantity * (item.discount == 0 ? item.price : item.discount),
+    (amount, item) => amount + item.quantity * item.price,
+    // item.quantity * (item.discount == 0 ? item.price : item.discount),
     0
   );
 
   let getDiscount = cart.reduce(
-    (amount, item) => amount + item.quantity * (item.discount != 0 ? item.discount : null),
+    (amount, item) =>
+      amount + item.quantity * (item.discount != 0 ? item.discount : null),
     0
   );
   getDiscount = getAmount - getDiscount;
@@ -40,9 +39,31 @@ const Checkout = () => {
   return (
     <form onSubmit={handlePhoneNumber} className={`${styles.mainForm}`}>
       <div className={`${styles.top}`}>
-        <span>جمع : {getAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span>
-        <span>تخفیف : {getDiscount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} </span>
-        <span>کل : {getTotal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span>
+        <table>
+          <tbody>
+            <tr>
+              <td>کل قیمت :</td>
+              <td>{getAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</td>
+            </tr>
+            <tr>
+              <td>تخفیف : </td>
+              <td>{getDiscount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</td>
+            </tr>
+            <tr>
+              <td>جمع :</td>
+              <td>{getTotal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</td>
+            </tr>
+          </tbody>
+        </table>
+        {/* <span>
+          جمع : {getAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+        </span>
+        <span>
+          تخفیف : {getDiscount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+        </span>
+        <span>
+          کل : {getTotal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+        </span> */}
       </div>
       <div className={`${styles.middle}`}>
         <input

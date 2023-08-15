@@ -77,12 +77,25 @@
         width: 30% !important;
     }}
 @media only screen and (max-width:600px) {
-    .top{
-        span{
-            display: none;
+    .mainFooter{
+        .top{
+            span{
+                display: none;
+            }
+           justify-content: center !important;
+            }
+        .middleText{
+            box-sizing: border-box;
+            padding: 0 15px;
+            width:50% !important;
+            h6{
+                font-size: small;
+            }
+        }}
+        .bottom:nth-child(3){
+            align-items: flex-start;
+            box-sizing: border-box;
+            padding-top: 20px;
+            height: 120px;
         }
-       justify-content: center !important;
-        }
-    .middleText{
-        width:50% !important;
-    }}
+    }

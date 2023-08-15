@@ -1,5 +1,4 @@
 
-
     .span{
         display: flex;
         justify-content: space-around;
@@ -42,6 +41,7 @@
         height: 300px;
         text-decoration: none;
         color: #6d6b6b;
+
         .content{
             display: flex;
             width: 100%;
@@ -51,6 +51,7 @@
             align-items: center;
             padding: 15px;
             color: #6d6b6b;
+          
         }
     }
     .dailyCards{
@@ -77,6 +78,12 @@
             width: 50%;
             border: none !important;
             border-bottom: 1px solid #9e9c9c !important;
+            .content{
+                .image{
+                    width: 100px !important;
+                    height: 100px !important;
+                }
+            }
         }
         .dailyCards:nth-child(1),.dailyCards:nth-child(2n+1){
             border-left: 1px solid #9e9c9c !important;

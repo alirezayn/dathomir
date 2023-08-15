@@ -12,12 +12,27 @@ import { RxHamburgerMenu } from "react-icons/rx";
 const Header = () => {
   const [data, setData] = useState({});
   const [show, setShow] = useState(false);
+  const [sticky, setSticky] = useState()
   const navigationShowHandler = () => {
     show == true ? setShow(false) : setShow(true);
 
   };
-  
+  const isBrowser = ()=> typeof window != "undefined"
+
   useEffect(() => {
+    if(isBrowser()){
+    let oldValue = 0;
+    window.addEventListener('scroll', ()=>{
+      let newValue = window.pageYOffset;
+      if(oldValue - newValue < 0){   
+        setSticky(styles.sticky)
+      } else if(oldValue - newValue > 0){
+        setSticky(styles.notSticky)
+      }
+  
+      oldValue = newValue;
+  });
+  }
     const topBanner = async () => {
       const req = await api.GET("topBanner");
       const res = await req.data;
@@ -28,7 +43,7 @@ const Header = () => {
      
   }, []);
   return (
-    <div className={`${styles.mainContainer}`} >
+    <div className={`${styles.mainContainer} ${sticky}`}>
       <div style={{width:"100%"}}>
         <TopBanner image={data.imageUrl} id={data.id} url={data.url} />
       </div>

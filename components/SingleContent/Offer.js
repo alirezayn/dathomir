@@ -43,8 +43,11 @@ const Offer = ({ product, name }) => {
           600:{
             slidesPerView:4
           },
-          400:{
+          300:{
             slidesPerView:2
+          },
+          200:{
+            slidesPerView:1
           }
         }}
       >
