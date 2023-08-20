@@ -14,11 +14,16 @@ const Footer = () => {
   const [data, setdata] = useState([]);
   useEffect(() => {
     const object = async () => {
-      let object = await axios.get(
-        "https://jsonplaceholder.typicode.com/posts"
-      );
-      object = await object.data;
-      setdata(object);
+      try{
+
+        let object = await axios.get(
+          "https://jsonplaceholder.typicode.com/posts"
+          );
+          object = await object.data;
+          setdata(object);
+        }catch{
+          console.log('error')
+        }
     };
     object();
   }, []);

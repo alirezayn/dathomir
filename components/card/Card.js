@@ -9,7 +9,6 @@ import AddToCart from "../addToCart/AddToCart";
 import { useRouter } from "next/router";
 import ProductPrice from "../addToCart/ProductPrice";
 const Card = ({ products }) => {
-
   return (
     <div className={`${styles.card}`}>
       <Link href={`/products/${products.name}`} className={`${styles.link}`}>

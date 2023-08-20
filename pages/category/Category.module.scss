@@ -1,12 +1,26 @@
 .mainContainer{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
     width: 100%;
+    
     .leftContainer{
         display: flex;
         flex-wrap: wrap;
         width: 70%;
+        order: 2;
         
+    }
+    .rightContainer{
+        display: flex;
+        width: 20%;
+        order: 1;
+        border: 1px solid #dddcdc;
+        border-radius: 5px;
+        height: 600px;
+        position: sticky;
+        top: 150px;
+        box-sizing: border-box;
+        padding: 15px;
     }
 }
 @media only screen and (max-width:768px) {
