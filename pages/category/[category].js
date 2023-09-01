@@ -25,15 +25,7 @@ const category = ({ data }) => {
       setFilter(filter.filter((item) => item != checkValue));
     }
   };
-  const searchItems = (e) => {
-    if (e.key == "Enter") {
-      // const word = e.target.value;
-      // const capitalized = word.charAt(0).toUpperCase() + word.slice(1);
-      setFilter(item=>[...item,e.target.value]);
-      }
-    };
-    console.log(filter)
-
+ 
   return (
     <>
       <Head>
@@ -59,7 +51,6 @@ const category = ({ data }) => {
         <div className={`${styles.rightContainer}`}>
           <FilterList
             func={onCheckBox}
-            searchFunc={searchItems}
             category={data.name}
           />
         </div>

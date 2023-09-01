@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./FilterList.module.scss";
-const FilterList = ({ searchFunc, func, category }) => {
-  const [number, setNumber] = useState(0);
+const FilterList = ({ func, category }) => {
+  
   const data = [
     {
       name: "گوشی موبایل",
@@ -29,22 +29,13 @@ const FilterList = ({ searchFunc, func, category }) => {
         { name: "ایسر" },
       ],
     },
-  ];
+  ]
 
-
-    // setNumber(e.target.value);
-  
   let checkItems = data
     .filter((item) => item.name == category)
     .map((item) => item.brand);
   return (
     <div className={`${styles.mainFilter}`}>
-      <input
-        type="text"
-        onKeyDown={searchFunc}
-        className={styles.inputSearch}
-        placeholder="جستجو ... "
-      />
       <span>برند</span>
       <ul>
         {checkItems[0].map((item, index) => {

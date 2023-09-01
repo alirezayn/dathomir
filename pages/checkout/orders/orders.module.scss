@@ -1,0 +1,115 @@
+.topContainer {
+    width: 80%;
+    border: 2px solid #f31919;
+    opacity: 0.8;
+    border-radius: 8px;
+    height: 150px;
+    margin: 15px auto;
+}
+
+.mainContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    margin: 15px auto;
+    height: auto;
+    .rightContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 60%;
+        height: auto;
+        padding: 15px;
+        box-sizing: border-box;
+        box-shadow: 0 0 1px #97999b;
+        h5 {
+            margin-right: 35px;
+            color: #818181;
+        }
+        .choosePayment {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            height: 200px;
+            border-radius: 3px;
+            .row {
+                display: flex;
+                align-items: center;
+                box-sizing: border-box;
+                justify-content: space-around;
+                width: 250px;
+                margin: 0 15px;
+                padding: 0 5px;
+            }
+        }
+        .discountCode {
+            padding: 0 15px;
+            box-sizing: border-box;
+            width: 60%;
+            height: 50px;
+            border-radius: 3px;
+            border: none;
+            box-shadow: 0 0 1px #97999b;
+            color: #0a0a0a;
+        }
+    }
+    .leftContainer {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid #bdbaba;
+        border-radius: 5px;
+        width: 30%;
+        height: 400px;
+       .label{
+        display: flex;
+        justify-content: space-between;
+        box-sizing: border-box;
+        padding: 0 5px;
+        width: 80%;
+        border-bottom: 1px solid #bdbaba;
+        color: #454343;
+       }
+       .label:nth-last-child(-n+2){ 
+        border-bottom: none;
+       }
+       .payButton {
+           width: 80%;
+           height: 50px;
+           color: white;
+           border: none;
+           border-radius: 5px;
+           margin: 0 auto;
+           background-color: #7b1fa2;
+           box-shadow: 0 0 1px #5f187d;
+        }
+        .payButton:hover{
+            background-color: #631d81;
+        }
+        .shippingTime{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80%;
+            height: 50px;
+            color: #f31919;
+            border: 1px solid #f31919;
+            border-radius: 3px;
+            margin: 0 auto;
+            background-color: transparent;
+        }
+    }
+}
+.selectedColor {
+    color: #5497fd;
+}
+.notSelected {
+    color: #97999b;
+    opacity: 0.7;
+}
+.red{
+    color: red !important;
+}

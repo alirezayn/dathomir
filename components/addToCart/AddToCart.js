@@ -1,9 +1,4 @@
-import {
-  
-  addToCart,
-  decrease,
-  increase,
-} from "@/redux/features/StoreReducer";
+import { addToCart, decrease, increase } from "@/redux/features/StoreReducer";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./AddToCart.module.scss";
@@ -11,14 +6,16 @@ import { FaTrashCan } from "react-icons/fa6";
 import { TbMinus, TbPlus } from "react-icons/tb";
 import ProductPrice from "./ProductPrice";
 import { RiShoppingCartFill } from "react-icons/ri";
+import { removeOrder } from "@/redux/features/OrderReducer";
 
 //-----------------------------------------------------
 
 const AddToCart = ({ product }) => {
   const cart = useSelector((state) => state.cart);
+  const order = useSelector((state) => state.order.order);
   const item = cart.find((item) => item.id === product.id);
   const dispatch = useDispatch();
-
+    
   //-----------------------------------------
 
   const addItemInCart = () => {
@@ -45,7 +42,6 @@ const AddToCart = ({ product }) => {
   };
 
   return (
-
     <div className={`${styles.mainContainer}`}>
       {item ? (
         <div className={`${styles.mainButton}`}>
@@ -76,7 +72,9 @@ const AddToCart = ({ product }) => {
               {"افزودن به سبد"} <RiShoppingCartFill />
             </button>
           ) : (
-            <button className={`${styles.addToCartButton}`} disabled>ناموجود</button>
+            <button className={`${styles.addToCartButton}`} disabled>
+              ناموجود
+            </button>
           )}
         </>
       )}

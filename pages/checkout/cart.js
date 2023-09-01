@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { useSelector } from "react-redux";
 import styles from "./cart.module.scss";
 import Head from "next/head";
@@ -9,13 +9,11 @@ const cart = () => {
   const cart = useSelector((state) => state.cart);
   return (
     <>
-    <Head>
-      <title>
-        فروشگاه اینترنی bESTShop
-      </title>
-    </Head>
+      <Head>
+        <title>فروشگاه اینترنی bESTShop</title>
+      </Head>
       {cart.length > 0 ? (
-        <CartFill items={cart}/>
+          <CartFill items={cart} />
       ) : (
         <EmptyCart />
       )}

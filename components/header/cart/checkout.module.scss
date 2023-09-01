@@ -44,7 +44,6 @@
         align-items: center;
         height: 100px;
         .button{
-            
             width: 150px;
             height: 30px;
             background-color: #42065e;
@@ -54,11 +53,16 @@
             transition: .5s;
             font-size: small;
         }
-        .button:hover{
-            background-color: white;
-            color: #42065e;
-            transition: .5s;
-            border: 1px solid #42065e;
+        .button:disabled{
+            cursor: auto;
+            opacity: .6;
+            // background-color: transparent;
         }
+        // .button:hover{
+        //     background-color: white;
+        //     color: #42065e;
+        //     transition: .5s;
+        //     border: 1px solid #42065e;
+        // }
     }
 }

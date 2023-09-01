@@ -10,12 +10,9 @@ import Benefits from "@/components/addToCart/Benefits";
 import AvailableInStock from "@/components/addToCart/AvailableInStock";
 import Offer from "@/components/SingleContent/Offer";
 import Optional from "@/components/SingleContent/Optional";
-import FreeShipment from "@/components/SingleContent/FreeShipment";
-import { useRouter } from "next/router";
-import Link from "next/link";
-
+import FreeShipment from "@/components/SingleContent/FreeShipment"
 const SingleProducts = (props) => {
-  const route = useRouter()
+  
   return (
     <>
       <div className={`${styles.mainContainer}`}>

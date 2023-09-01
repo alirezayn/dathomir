@@ -43,10 +43,10 @@ const Header = () => {
      
   }, []);
   return (
-    <div className={`${styles.mainContainer} ${sticky}`}>
-      <div style={{width:"100%"}}>
+    <div className={`${styles.mainContainer} ${sticky}` }>
+      {/* <div style={{width:"100%"}}>
         <TopBanner image={data.imageUrl} id={data.id} url={data.url} />
-      </div>
+      </div> */}
       <div className={`${styles.row}`} >
         <Link href={'/'} className={`${styles.bestShop}`}>
           bestshop
