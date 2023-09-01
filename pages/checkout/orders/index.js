@@ -93,15 +93,15 @@ const orders = () => {
               <ShippingTime />
             </div>
             <div className={`${styles.leftContainer}`}>
-              <label className={`${styles.label}`}>
+              <span className={`${styles.label}`}>
                 <h6>
                   قیمت کالا ها&nbsp;&#58;&#40;{order.products.length}&#41;
                 </h6>
                 <h6>
                   {totalPrice}&nbsp;{"تومان"}
                 </h6>
-              </label>
-              <label className={`${styles.label}`}>
+              </span>
+              <span className={`${styles.label}`}>
                 <h6>هزینه ارسال</h6>
                 <h6>
                   {shippingPrice
@@ -109,13 +109,13 @@ const orders = () => {
                     .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                   &nbsp;{"تومان"}
                 </h6>
-              </label>
-              <label className={`${styles.label} ${styles.red}`}>
+              </span>
+              <span className={`${styles.label} ${styles.red}`}>
                 <h6>سود شما از خرید</h6>
                 <h6>
                   {discount}&nbsp;{"تومان"}
                 </h6>
-              </label>
+              </span>
               <label className={`${styles.label}`}>
                 <h6>قابل پرداخت</h6>
                 <h6>
@@ -129,9 +129,9 @@ const orders = () => {
               {order.order.date ? (
                 <button className={`${styles.payButton}`}>پرداخت</button>
               ) : (
-                <lable className={`${styles.shippingTime}`}>
+                <span className={`${styles.shippingTime}`}>
                   انتخال زمان ارسال
-                </lable>
+                </span>
               )}
             </div>
           </div>
