@@ -30,7 +30,12 @@ const FilterList = ({ func, category }) => {
       ],
     },
   ]
-
+  const storage = [
+    {capacity:'32'},
+    {capacity:'64'},
+    {capacity:'128'},
+    {capacity:'256'},
+  ]
   let checkItems = data
     .filter((item) => item.name == category)
     .map((item) => item.brand);
@@ -49,6 +54,17 @@ const FilterList = ({ func, category }) => {
       </ul>
      
       <hr />
+        <ul>
+        <span>ظرفیت</span>
+      {storage.map((item,index)=>{
+        return(
+          <li key={index + 1}>
+            <input type="checkbox" name={item.capacity} onChange={func}/>
+            {item.capacity}
+          </li>
+          )
+        })}
+        </ul>
     </div>
   );
 };

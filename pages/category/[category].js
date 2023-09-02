@@ -6,26 +6,30 @@ import * as api from "../../api/api";
 import styles from "./Category.module.scss";
 import FilterList from "@/components/filterList/FilterList";
 const category = ({ data }) => {
-  // const object = { model: [], price:0 };
-  const input = useRef();
-  const [filter, setFilter] = useState([]);
+  const [filter, setFilter] = useState({model:[],capacity:[]});
+  
   const route = useRouter();
   const siteMap = route.query.category;
+  
   const onCheckBox = (e) => {
     // e.target.checked ? setFilter(e.target.name) : setFilter('');
     if (e.target.checked == true) {
-      setFilter((item) => [...item, e.target.name]);
+      setFilter((items)=> ({...items,model:[...items.model,e.target.name]}));
     }
-    if (e.target.checked == false) {
-      let checkValue =
-        filter.length != 0
-          ? filter.find((item) => item == e.target.name)
-          : null;
-          
-      setFilter(filter.filter((item) => item != checkValue));
-    }
+    // if (e.target.checked == false) {
+    //   let checkValue =
+    //     filter.model.length != 0
+    //       ? filter.model.find((item) => item == e.target.name ? console.log(true) : console.log(false))
+    //       : null
+    //       const results = filter.model.filter(item=>item != checkValue)
+    //       console.log(results)
+      // setFilter(items=>({...items,model:filter.model.filter((item) => item != checkValue)}));
+      // setFilter(items=>({...items,model:[]}))
+      // setFilter(items=>(items.model.filter(item=>item != checkValue)))
+    // }
   };
- 
+  console.log(filter)
+  
   return (
     <>
       <Head>
@@ -39,20 +43,18 @@ const category = ({ data }) => {
       <div className={`${styles.mainContainer}`}>
         <div className={`${styles.leftContainer}`}>
           {data.products
-            .filter((item) =>
-              filter.length == 0
-                ? item
-                : filter.some((value) => item.name.includes(value))
-            )
+            // .filter((item) => {
+              
+            //   return filter.length == 0
+            //     ? item
+            //     : filter.find(value=>item.name.includes(value))
+            // })
             .map((item) => {
               return <Card products={item} key={item.id} />;
             })}
         </div>
         <div className={`${styles.rightContainer}`}>
-          <FilterList
-            func={onCheckBox}
-            category={data.name}
-          />
+          <FilterList func={onCheckBox} category={data.name} />
         </div>
       </div>
     </>
