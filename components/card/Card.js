@@ -9,6 +9,7 @@ import AddToCart from "../addToCart/AddToCart";
 import { useRouter } from "next/router";
 import ProductPrice from "../addToCart/ProductPrice";
 const Card = ({ products }) => {
+  // console.log(products)
   return (
     <div className={`${styles.card}`}>
       <Link href={`/products/${products.name}`} className={`${styles.link}`}>
@@ -33,24 +34,12 @@ const Card = ({ products }) => {
             <span>ناموجود</span>
           ) : (
             <ProductPrice price={products.price} discount={products.priceWithDiscount} />
-            // <>
-            //   {products.priceWithDiscount == 0 ? (
-            //     <span>{products.price}</span>
-            //   ) : (
-            //     <>
-            //       <span
-            //         style={{ textDecoration: "line-through", color: "red" }}
-            //       >
-            //         {products.price}
-            //       </span>
-            //       <span>{products.priceWithDiscount}</span>
-            //     </>
-            //   )}
-            // </>
           )}
         </div>
       </Link>
     </div>
+    
+
   );
 };
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./FilterList.module.scss";
-const FilterList = ({ func, category }) => {
+const FilterList = ({ checkModel,checkCapacity, category }) => {
   
   const data = [
     {
@@ -46,7 +46,7 @@ const FilterList = ({ func, category }) => {
         {checkItems[0].map((item, index) => {
           return (
             <li key={index + 1}>
-              <input type="checkbox" name={item.name} onChange={func} />
+              <input type="checkbox" name={item.name} onChange={checkModel} />
               {item.name}
             </li>
           );
@@ -59,7 +59,7 @@ const FilterList = ({ func, category }) => {
       {storage.map((item,index)=>{
         return(
           <li key={index + 1}>
-            <input type="checkbox" name={item.capacity} onChange={func}/>
+            <input type="checkbox" name={item.capacity} onChange={checkCapacity}/>
             {item.capacity}
           </li>
           )

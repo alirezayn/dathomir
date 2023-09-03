@@ -6,9 +6,21 @@
     .leftContainer{
         display: flex;
         flex-wrap: wrap;
+        flex-direction: column;
         width: 70%;
         order: 2;
-        
+        .top{
+            display: flex;
+            width: 40%;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 15px;
+
+        }
+        .bottom{
+            display: flex;
+            flex-wrap: wrap;
+        }
     }
     .rightContainer{
         display: flex;

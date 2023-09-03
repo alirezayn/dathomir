@@ -5,31 +5,54 @@ import React, { useEffect, useRef, useState } from "react";
 import * as api from "../../api/api";
 import styles from "./Category.module.scss";
 import FilterList from "@/components/filterList/FilterList";
+import Sort from "@/components/sort/Sort";
 const category = ({ data }) => {
-  const [filter, setFilter] = useState({model:[],capacity:[]});
-  
+  const [filter, setFilter] = useState({ model: [], capacity: [] });
+  const [sort, setSort] = useState('')
   const route = useRouter();
   const siteMap = route.query.category;
-  
+
   const onCheckBox = (e) => {
-    // e.target.checked ? setFilter(e.target.name) : setFilter('');
     if (e.target.checked == true) {
-      setFilter((items)=> ({...items,model:[...items.model,e.target.name]}));
+      setFilter((items) => ({
+        ...items,
+        model: [...items.model, e.target.name],
+      }));
     }
-    // if (e.target.checked == false) {
-    //   let checkValue =
-    //     filter.model.length != 0
-    //       ? filter.model.find((item) => item == e.target.name ? console.log(true) : console.log(false))
-    //       : null
-    //       const results = filter.model.filter(item=>item != checkValue)
-    //       console.log(results)
-      // setFilter(items=>({...items,model:filter.model.filter((item) => item != checkValue)}));
-      // setFilter(items=>({...items,model:[]}))
-      // setFilter(items=>(items.model.filter(item=>item != checkValue)))
-    // }
+    if (e.target.checked == false) {
+      let checkValue =
+        filter.model.length != 0
+          ? filter.model.find((item) => item == e.target.name)
+          : null;
+      setFilter((items) => ({
+        ...items,
+        model: filter.model.filter((value) => value != checkValue),
+      }));
+    }
   };
-  console.log(filter)
-  
+
+  const onCheckCapacity = (e) => {
+    if (e.target.checked == true) {
+      setFilter((items) => ({
+        ...items,
+        capacity: [...items.capacity, e.target.name],
+      }));
+    }
+    if (e.target.checked == false) {
+      let checkValue =
+        filter.capacity.length != 0
+          ? filter.capacity.find((item) => item == e.target.name)
+          : null;
+      setFilter((items) => ({
+        ...items,
+        capacity: filter.capacity.filter((value) => value != checkValue),
+      }));
+    }
+  };
+  const sortHandler = (e) => {
+    setSort(e.target.innerHTML)
+  }
+  console.log(sort)
   return (
     <>
       <Head>
@@ -42,19 +65,64 @@ const category = ({ data }) => {
       </span>
       <div className={`${styles.mainContainer}`}>
         <div className={`${styles.leftContainer}`}>
-          {data.products
-            // .filter((item) => {
-              
-            //   return filter.length == 0
-            //     ? item
-            //     : filter.find(value=>item.name.includes(value))
-            // })
-            .map((item) => {
-              return <Card products={item} key={item.id} />;
-            })}
+          <div className={`${styles.top}`}>
+            <Sort sortHandler={sortHandler} sortData={sort}/>
+          </div>
+          <hr />
+          <div className={`${styles.bottom}`}>
+            {data.products
+              .filter((item) => {
+                if (filter.model.length == 0 && filter.capacity.length == 0) {
+                  return item;
+                }
+                if (filter.model.length > 0 && filter.capacity.length > 0) {
+                  return (
+                    filter.model.some((value) => item.name.includes(value)) &&
+                    filter.capacity.some((value) => item.name.includes(value))
+                  );
+                }
+                if (filter.model.length > 0) {
+                  return filter.model.some((value) =>
+                    item.name.includes(value)
+                  );
+                }
+                if (filter.capacity.length > 0) {
+                  return filter.capacity.some((value) =>
+                    item.name.includes(value)
+                  );
+                }
+              }).sort((a,b)=>{
+                if(sort == ''){
+                  return null
+                }
+                if(sort=='ارزانترین'){
+                  return a.price - b.price
+                }
+                if(sort == 'گرانترین'){
+                 return b.price - a.price
+                }
+                if(sort=='نام'){
+                  if(a.name > b.name){
+                    return 1
+                  }
+                  if(a.name < b.name){
+                    return -1
+                  }
+                  return 0
+                }
+              }
+              )
+              .map((item) => {
+                return <Card products={item} key={item.id} />;
+              })}
+          </div>
         </div>
         <div className={`${styles.rightContainer}`}>
-          <FilterList func={onCheckBox} category={data.name} />
+          <FilterList
+            checkModel={onCheckBox}
+            checkCapacity={onCheckCapacity}
+            category={data.name}
+          />
         </div>
       </div>
     </>
