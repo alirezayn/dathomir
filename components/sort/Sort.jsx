@@ -10,7 +10,13 @@ const Sort = ({ sortHandler, sortData }) => {
             <span
               key={index + 1}
               value={item.sort}
-              style={{ cursor: "pointer",color:`${sortData == item.sort ? 'red': 'grey'}`,borderBottom:`${sortData == item.sort ? ' 1px solid red': 'none'}`}}
+              style={{
+                cursor: "pointer",
+                color: `${sortData == item.sort ? "red" : "grey"}`,
+                borderBottom: `${
+                  sortData == item.sort ? " 1px solid red" : "none"
+                }`,
+              }}
               onClick={sortHandler}
             >
               {item.sort}

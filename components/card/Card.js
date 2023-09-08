@@ -5,11 +5,8 @@ import Image from "next/image";
 import styles from "./Card.module.scss";
 import IncredibleOfferBadge from "../incredibleOfferBadge/IncredibleOfferBadge";
 import Link from "next/link";
-import AddToCart from "../addToCart/AddToCart";
-import { useRouter } from "next/router";
 import ProductPrice from "../addToCart/ProductPrice";
 const Card = ({ products }) => {
-  // console.log(products)
   return (
     <div className={`${styles.card}`}>
       <Link href={`/products/${products.name}`} className={`${styles.link}`}>
@@ -21,12 +18,16 @@ const Card = ({ products }) => {
             className={`${styles.image}`}
             src={products.indexImageUrl}
             alt={products.name}
-            width={100}
-            height={100}
+            width={150}
+            height={150}
           />
+          <h6>
+            {products.name.substring(0, 60)}
+            {"..."}
+          </h6>
         </div>
         <div className={`${styles.bottomCard}`}>
-          <h6>
+        <h6>
             {products.name.substring(0, 60)}
             {"..."}
           </h6>
@@ -38,8 +39,6 @@ const Card = ({ products }) => {
         </div>
       </Link>
     </div>
-    
-
   );
 };
 

@@ -10,9 +10,9 @@ import Benefits from "@/components/addToCart/Benefits";
 import AvailableInStock from "@/components/addToCart/AvailableInStock";
 import Offer from "@/components/SingleContent/Offer";
 import Optional from "@/components/SingleContent/Optional";
-import FreeShipment from "@/components/SingleContent/FreeShipment"
+import FreeShipment from "@/components/SingleContent/FreeShipment";
+import Link from "next/link";
 const SingleProducts = (props) => {
-  
   return (
     <>
       <div className={`${styles.mainContainer}`}>
