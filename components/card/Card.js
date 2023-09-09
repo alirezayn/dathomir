@@ -28,7 +28,7 @@ const Card = ({ products }) => {
           </h6>
         </div>
         <div className={`${styles.bottomCard}`}>
-        <h6>
+        <h6 className={`${styles.bottomName}`}>
             {products.name.substring(0, 60)}
             {"..."}
           </h6>
