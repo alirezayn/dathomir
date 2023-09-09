@@ -8,7 +8,10 @@ import { useSelector } from "react-redux";
 const EmptyCart = () => {
   const userExist = useSelector((state) => state.user.token);
   return (
-    <div className={`${styles.mainContainer}`} style={userExist ? {justifyContent:"center"} : null }>
+    <div
+      className={`${styles.mainContainer}`}
+      style={userExist ? { justifyContent: "center" } : null}
+    >
       <div className={`${styles.rightContainer}`}>
         <Image
           src={"https://www.digikala.com/statics/img/svg/empty-cart.svg"}
@@ -38,6 +41,4 @@ const EmptyCart = () => {
   );
 };
 
-export default EmptyCart;
-
-export const getServerSideProps = (context) => {};
+export default EmptyCart

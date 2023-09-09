@@ -1,11 +1,17 @@
 .topContainer {
     width: 80%;
-    border: 2px solid #f31919;
+    border: 1px solid #f31919;
     opacity: 0.8;
-    border-radius: 8px;
+    border-radius: 5px;
     height: 150px;
     margin: 15px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 80px;
+    color: #f31919;
 }
+
 
 .mainContainer {
     display: flex;

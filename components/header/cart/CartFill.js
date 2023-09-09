@@ -10,10 +10,11 @@ import { IoIosColorPalette } from "react-icons/io";
 import { BsShieldFillCheck } from "react-icons/bs";
 import { MdInventory } from "react-icons/md";
 import Checkout from "./Checkout";
+import CheckOrders from "./CheckOrders";
 
 const CartFill = ({ items }) => {
   const order = useSelector((state) => state.order.order);
- 
+
   const data = [
     {
       color: "سفید",
@@ -65,7 +66,10 @@ const CartFill = ({ items }) => {
       </div>
       <div className={`${styles.leftContainer}`}>
         {Object.keys(order).length > 0 ? (
-          <Link href={"orders"}>ثبت سفارش</Link>
+          // <div style={{height:"200px"}}>
+          <CheckOrders />
+            // <Link href={"orders"}>ثبت سفارش</Link>
+          // </div>
         ) : (
           <Checkout />
         )}

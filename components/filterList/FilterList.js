@@ -23,10 +23,9 @@ const FilterList = ({ checkModel,checkCapacity, category }) => {
     {
       name: "دوربین دیجیتال",
       brand: [
-        { name: "اپل" },
-        { name: "ایسوس" },
-        { name: "لنوو" },
-        { name: "ایسر" },
+        { name: "نیکون" },
+        { name: "سونی" },
+        { name: "کنون" },
       ],
     },
   ]

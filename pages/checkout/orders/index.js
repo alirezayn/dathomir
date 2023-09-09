@@ -7,13 +7,16 @@ import { HiOutlineCash } from "react-icons/hi";
 import ShippingTime from "@/components/weekday/ShippingTime";
 import { removeOrder } from "@/redux/features/OrderReducer";
 import Head from "next/head";
+import OrderBanner from "@/components/orderBanner/OrderBanner";
+import EmptyOrder from "@/components/header/cart/EmptyOrder";
+
 const orders = () => {
   const order = useSelector((state) => state.order);
-  const cart = useSelector((state) => state.cart);
 
   const dispatch = useDispatch();
+  
   useEffect(() => {
-    if (cart.length == 0) {
+    if (localStorage.getItem('cart').length == 0) {
       dispatch(removeOrder());
     }
   }, []);
@@ -40,7 +43,10 @@ const orders = () => {
     </Head>
       {Object.keys( order.order).length > 0 ? (
         <>
-          <div className={`${styles.topContainer}`}></div>
+
+          <div className={`${styles.topContainer}`}>
+            <OrderBanner date={order.order.date}/>
+          </div>
           <div className={`${styles.mainContainer}`}>
             <div className={`${styles.rightContainer}`}>
               <h5>انتخاب روش پرداخت</h5>
@@ -136,9 +142,10 @@ const orders = () => {
             </div>
           </div>
         </>
-      ) : <label> سفارش ثبت شده ای ندارید</label>}
+      ) : <EmptyOrder />}
     </>
   );
 };
+
 
 export default orders;

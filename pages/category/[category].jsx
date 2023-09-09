@@ -7,8 +7,8 @@ import styles from "./Category.module.scss";
 import FilterList from "@/components/filterList/FilterList";
 import Sort from "@/components/sort/Sort";
 import Link from "next/link";
-const category =  ({ data }) => {
-  const [isloading, setIsLoading] = useState(true);
+const category =  ({ data, loading }) => {
+  // const [isloading, setIsLoading] = useState(true);
   const [filter, setFilter] = useState({ model: [], capacity: [] });
   const [sort, setSort] = useState("");
   const onCheckBox = (e) => {
@@ -61,7 +61,7 @@ const category =  ({ data }) => {
         <title>{data.name}</title>
         <meta property="og:title" content={data.name} key="title" />
       </Head>
-      {!data ? (
+      {loading ? (
         <div>Loading...</div>
       ) : (
         <div className={`${styles.mainContainer}`}>
@@ -134,11 +134,13 @@ const category =  ({ data }) => {
 export default category;
 
 export const getServerSideProps = async (context) => {
+  let loading = true
   try {
     const url = await api.GET(`products/category/${context.params.category}`);
     const response = await url.data;
+    loading = false
     return {
-      props: { data: response },
+      props: { data: response , loading:loading },
     };
   } catch {
     return {

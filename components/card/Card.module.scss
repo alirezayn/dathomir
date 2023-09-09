@@ -5,6 +5,7 @@
     transition: .5s;
     box-sizing: border-box;
     padding: 0 10px;
+    // position: relative;
     .topCard{
         height: 40px;
         text-align: center;
@@ -13,10 +14,16 @@
     .middleCard{
         text-align: center;
         height: 300px;
+        // position: relative;
         h6{
             margin-top: 25px;
             font-size: small;
             text-align: justify;
+        }
+        .image{
+            // position: absolute;
+            width: 150px !important;
+            height: 150px !important;
         }
     }
     .bottomCard{
@@ -71,6 +78,7 @@
                 h6{
                     display: none;
                 }
+                
                 
             }
             .bottomCard{

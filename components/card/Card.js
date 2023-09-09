@@ -18,8 +18,9 @@ const Card = ({ products }) => {
             className={`${styles.image}`}
             src={products.indexImageUrl}
             alt={products.name}
-            width={150}
-            height={150}
+            width={200}
+            height={200}
+       
           />
           <h6>
             {products.name.substring(0, 60)}
