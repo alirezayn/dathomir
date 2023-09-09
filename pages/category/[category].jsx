@@ -134,13 +134,11 @@ const category =  ({ data, loading }) => {
 export default category;
 
 export const getServerSideProps = async (context) => {
-  let loading = true
   try {
     const url = await api.GET(`products/category/${context.params.category}`);
     const response = await url.data;
-    loading = false
     return {
-      props: { data: response , loading:loading },
+      props: { data: response},
     };
   } catch {
     return {
