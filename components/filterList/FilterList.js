@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./FilterList.module.scss";
-const FilterList = ({ checkModel,checkCapacity, category }) => {
+import { BsArrowLeftShort } from "react-icons/bs";
+const FilterList = ({ checkModel,checkCapacity, category, show, hide }) => {
   
   const data = [
     {
@@ -39,7 +40,8 @@ const FilterList = ({ checkModel,checkCapacity, category }) => {
     .filter((item) => item.name == category)
     .map((item) => item.brand);
   return (
-    <div className={`${styles.mainFilter}`}>
+    <div className={`${styles.mainFilter} ${show ? styles.show : styles.hide}`}>
+      <button className={`${styles.hideFilter}`} onClick={hide}><BsArrowLeftShort /></button>
       <span>برند</span>
       <ul>
         {checkItems[0].map((item, index) => {

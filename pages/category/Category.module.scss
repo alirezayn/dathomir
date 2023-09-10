@@ -34,6 +34,9 @@
         top: 100px;
         box-sizing: border-box;
         padding: 15px;
+        i{
+            display: none;
+        }
     }
 }
 .links{
@@ -46,8 +49,25 @@
 }
 @media only screen and (max-width:992px) {
     .mainContainer{
+        flex-direction: column;
+        position: relative;
         .rightContainer{
-            display: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            height: 30px;
+            width:auto;
+            margin-bottom: 30px;
+            cursor: pointer;
+            i{
+                display: block;
+            }
+            span{
+                font-size: small;
+            }
         }
     }
     .leftContainer{

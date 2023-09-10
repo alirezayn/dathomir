@@ -1,16 +1,16 @@
 import Card from "@/components/card/Card";
 import Head from "next/head";
-import { useRouter } from "next/router";
 import React, { useEffect, useRef, useState } from "react";
 import * as api from "../../api/api";
 import styles from "./Category.module.scss";
 import FilterList from "@/components/filterList/FilterList";
 import Sort from "@/components/sort/Sort";
-import Link from "next/link";
+import { BsFilterLeft } from "react-icons/bs";
 const category =  ({ data, loading }) => {
   // const [isloading, setIsLoading] = useState(true);
   const [filter, setFilter] = useState({ model: [], capacity: [] });
   const [sort, setSort] = useState("");
+  const [show, setShow] = useState(false)
   const onCheckBox = (e) => {
     if (e.target.checked == true) {
       setFilter((items) => ({
@@ -29,7 +29,9 @@ const category =  ({ data, loading }) => {
       }));
     }
   };
-
+  const showHandler = ()=>{
+    setShow(!show)
+  }
   const onCheckCapacity = (e) => {
     if (e.target.checked == true) {
       setFilter((items) => ({
@@ -54,7 +56,6 @@ const category =  ({ data, loading }) => {
       setSort("");
     }
   };
-  console.log(sort);
   return (
     <>
       <Head>
@@ -118,12 +119,15 @@ const category =  ({ data, loading }) => {
                 })}
             </div>
           </div>
-          <div className={`${styles.rightContainer}`}>
+          <div className={`${styles.rightContainer}`} >
             <FilterList
               checkModel={onCheckBox}
               checkCapacity={onCheckCapacity}
               category={data.name}
+              show={show}
+              hide={showHandler}
             />
+            <i onClick={showHandler}><BsFilterLeft/> &nbsp;فیلتر</i>
           </div>
         </div>
       )}
