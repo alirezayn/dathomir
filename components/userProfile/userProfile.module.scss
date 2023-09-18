@@ -3,32 +3,54 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid black;
     width: 90%;
     height: auto;
     margin: 15px auto;
     padding: 5px;
     box-sizing: border-box;
     .profile{
+        display: flex;
         width: 95%;
         height: 200px;
-        border: 1px solid black;
         margin: 15px auto;
+        background-color: #651FFF;
+        border-radius: 5px;
+        // box-sizing: border-box;
+        // padding: 5px;        
+      
+        .right{
+            margin: 15px;
+            width: 30%;
+            border: 1px solid white;
+        }
+        .left{
+            margin: 15px;
+            width: 70%;
+            border: 1px solid white;
+        }
     }
     .profileInfo{
         width: 95%;
         height: 500px;
         border: 1px solid black;
         margin: 15px auto;
-        button{
+        .borderBottom{
+        //  button{
+            // border:5px solid black ;
+        //  }   
+
+        }
+        a{
             background-color: #bebebe;
             margin: 0 5px;
-            border-radius: 5px;
             color: #2e2e2e;
+            border-radius: 5px;
+            border: 1px solid transparent;
         }
-        button:focus{
-            color: black;
-            border: 1px solid #bebebe;
+        a:focus
+        {
+            // background-color: #651FFF;
+            // border: 1px solid #bebebe;
         }
     }
 }
