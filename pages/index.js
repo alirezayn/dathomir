@@ -8,6 +8,7 @@ import SevenIcons from "@/components/sevenIcons/SevenIcons";
 // ---------------------------------------------------------------------------------------->>
 
 
+
 export default function Home({icons}) {
   return (
     <>
@@ -27,18 +28,13 @@ export default function Home({icons}) {
 
 export const getServerSideProps = async (context) => {
 
+  
+  const iconListRequest = await api.GET("SevenIcons")
+  const iconList = await iconListRequest.data;
 
-    const iconListRequest = await api.GET("SevenIcons")
-    const iconList = await iconListRequest.data
-
-
-    
     return{
       props:{
         icons:iconList,
       }
     }
-  
-
-
-};
+}
