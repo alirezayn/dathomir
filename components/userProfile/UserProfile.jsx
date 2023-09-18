@@ -27,6 +27,7 @@ const UserProfile = () => {
         Tab content for Contact
       </Tab>
     </Tabs>
+    
       </div>
     </div>
   );
