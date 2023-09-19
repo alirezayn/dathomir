@@ -1,4 +1,4 @@
-.mainContainer{
+.mainContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,50 +8,100 @@
     margin: 15px auto;
     padding: 5px;
     box-sizing: border-box;
-    .profile{
+
+    .profile {
         display: flex;
+        flex-wrap: wrap;
         width: 95%;
-        height: 200px;
+        height: auto;
         margin: 15px auto;
         background-color: #651FFF;
         border-radius: 5px;
-        // box-sizing: border-box;
-        // padding: 5px;        
-      
-        .right{
+        padding: 10px;
+
+        .right {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
             margin: 15px;
             width: 30%;
+            .details {
+                display: flex;
+                flex-direction: column;
+                color: white;
+                margin: 15px;
+
+            }
+
+        }
+
+        .left {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 15px;
+            width: 65%;
+            color: white;
+            .circle{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                border: 3px solid white;
+                border-radius: 100%;
+                width: 150px;
+                height: 150px;
+                span{
+                    margin: 10px 0;
+                }
+            }
+        }
+    }
+
+    .profileInfo {
+        width: 95%;
+        height: 500px;
+        margin: 15px auto;
+        background-color: #f3f3f3;
+        box-sizing: border-box;
+        padding: 15px;
+        border-radius: 5px;
+        a {
+            margin: 15px 5px;
+            color: #2e2e2e;
+            // border-radius: 3px;
+            border-bottom: 3px solid #e0e0e0;
+
+        }
+
+        .borderBottom {
+            color: #651FFF;
+            border-bottom: 3px solid #651FFF;
+        }
+    }}
+@media only screen and (max-width:992px)  {
+    .profile{
+
+        .right{
+            width: 100% !important;
             border: 1px solid white;
         }
         .left{
-            margin: 15px;
-            width: 70%;
+            width: 100% !important;
             border: 1px solid white;
+            .circle{
+                width: 110px !important;
+                height: 110px !important;
+                span{
+                    margin: 5px 0 !important;
+                }
+            }
         }
     }
     .profileInfo{
-        width: 95%;
-        height: 500px;
-        border: 1px solid black;
-        margin: 15px auto;
-        .borderBottom{
-        //  button{
-            // border:5px solid black ;
-        //  }   
 
-        }
         a{
-            background-color: #bebebe;
-            margin: 0 5px;
-            color: #2e2e2e;
-            border-radius: 5px;
-            border: 1px solid transparent;
+            transform: scale(.8);
         }
-        a:focus
-        {
-            // background-color: #651FFF;
-            // border: 1px solid #bebebe;
         }
-    }
 }
-
