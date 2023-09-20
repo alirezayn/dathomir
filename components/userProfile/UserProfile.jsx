@@ -108,11 +108,12 @@ const UserProfile = () => {
           </Nav>
           <Tab.Content>
             <Tab.Pane eventKey="پروفایل">
-              {Object.keys(profile).map((value) => {
+              {Object.keys(profile).map((value,index) => {
                 return (
                   <InputGroup
                     size="default"
                     className={width > 768 ? "w-25 mb-3" : "w-100"}
+                    key={index+1}
                   >
                     <InputGroup.Text id="inputGroup-sizing-default">
                       {profile[value]}
