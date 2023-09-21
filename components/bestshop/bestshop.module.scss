@@ -1,0 +1,20 @@
+@font-face {
+    font-family: segoe-ui-scripts;
+    src: url('/Font/segoesc.ttf');
+}
+.bestShop{
+    font-family: segoe-ui-scripts;
+    color: #7726c4;
+    font-size: x-large;
+    text-decoration: none;
+    border: 1px solid #7726c4;
+    border-radius: 3px;
+    padding: 5px 20px; 
+    transition: .5s;
+    margin:15px;
+}
+.bestShop:hover{
+    background-color: #7726c4;
+    color: white;
+    transition: .5s;
+}

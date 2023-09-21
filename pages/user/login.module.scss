@@ -40,3 +40,9 @@
     }
 
 }
+@media only screen and (max-width:600px) {
+    .form{
+        box-shadow: none !important;
+        background-color: #ffffff !important;
+    }
+}

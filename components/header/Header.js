@@ -48,7 +48,7 @@ const Header = () => {
         <TopBanner image={data.imageUrl} id={data.id} url={data.url} />
       </div> */}
       <div className={`${styles.row}`} >
-        <Link href={'/'} className={`${styles.bestShop}`}>
+        <Link href={'/'} className={`${styles.bestShop}`} >
           bestshop
         </Link>
         <div className={`${styles.rightContainer}`}>

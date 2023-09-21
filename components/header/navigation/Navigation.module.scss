@@ -1,66 +1,67 @@
 @import '../../../styles/mainColor.scss';
+
 .mainNav{
+    position: fixed;
     background-color: transparent;
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
+    flex-direction: column;
     height: 100%;
-    width: 100%;
-    // margin: 5px;
+    width: 300px;
+    top: 0;
+    right: 0;
+    background-color: #f5f5f5;
+    z-index: 10000;
+    box-shadow: -5px 0 50px #645964; 
+    .close{
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        border: none;
+        background-color: transparent;
+        padding:10px 20px;
+        border-radius:5px;
+        transition: .5s;
+    }
+    .close:hover{
+        background-color: #d1d1d1;
+        transition: .5s;
+    }
     .link{
-        position: sticky;
-        top: 10px;
+        list-style: none;
         text-decoration: none;
-        color: $primaryColor;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 90px;
-        height: 50%;
-        transition: 300ms;
-        border-radius: 8px;
-        
+        color: #a5a5a5;
     }
     .link:hover{
-        background-color: #e6e5e5a8;
-        transition: 300ms;
+        color: black;
     }
+    
 }
-@media only screen and  (max-width:1024px) {
-    .mainNav{
-        background-color: #e4e5e6;
-        position: fixed;
-        width:30%;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        z-index: 2000;
-        top: 0;
-        transition: .5s;
-    }
-    .show{
-        right:0;
-        transition: .5s;
-    }
-    .hide{
-        right: -100%;
-        transition: .5s;
-    }
-    .transparentDiv{
-        position: fixed;
-        z-index: 2000;
-        top: 0;
-        width: 70%;
-        height: 100vh;
-        background-color: #64616149;
-        transition: .5s;
-    }
-    .transparentDivShow{
-        left: 0;
-        transition:.45s;
-    }
-    .transparentDivHide{
-        left: -100%;
-        transition: .5s;
-    }
+
+.show{
+    right:0;
+    transition: .5s;
 }
+.hide{
+    right: -100%;
+    transition: .5s;
+}
+.transparentDiv{
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    width: 85%;
+    height: 100vh;
+    background-color: #fff7f725;
+    transition: .5s;
+}
+.transparentDivShow{
+    left: 0;
+    transition:.45s;
+}
+.transparentDivHide{
+    left: -100%;
+    transition: .5s;
+}
+   
