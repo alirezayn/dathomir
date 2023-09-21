@@ -7,17 +7,20 @@ import FilterList from "@/components/filterList/FilterList";
 import Sort from "@/components/sort/Sort";
 import { BsFilterLeft } from "react-icons/bs";
 const category =  ({ data, loading }) => {
-  // const [isloading, setIsLoading] = useState(true);
+
   const [filter, setFilter] = useState({ model: [], capacity: [] });
   const [sort, setSort] = useState("");
   const [show, setShow] = useState(false)
+
   const onCheckBox = (e) => {
+
     if (e.target.checked == true) {
       setFilter((items) => ({
         ...items,
         model: [...items.model, e.target.name],
       }));
     }
+
     if (e.target.checked == false) {
       let checkValue =
         filter.model.length != 0
@@ -28,10 +31,12 @@ const category =  ({ data, loading }) => {
         model: filter.model.filter((value) => value != checkValue),
       }));
     }
+
   };
   const showHandler = ()=>{
     setShow(!show)
   }
+
   const onCheckCapacity = (e) => {
     if (e.target.checked == true) {
       setFilter((items) => ({
@@ -39,6 +44,7 @@ const category =  ({ data, loading }) => {
         capacity: [...items.capacity, e.target.name],
       }));
     }
+
     if (e.target.checked == false) {
       let checkValue =
         filter.capacity.length != 0
@@ -50,6 +56,7 @@ const category =  ({ data, loading }) => {
       }));
     }
   };
+  
   const sortHandler = (e) => {
     setSort(e.target.innerHTML);
     if (e.target.innerHTML == sort) {

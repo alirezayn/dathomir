@@ -60,7 +60,7 @@ const FilterList = ({ checkModel,checkCapacity, category, show, hide }) => {
       {storage.map((item,index)=>{
         return(
           <li key={index + 1}>
-            <input type="checkbox" name={item.capacity} onChange={checkCapacity}/>
+            <input type="checkbox" name={`${item.capacity} گیگابایت`} onChange={checkCapacity}/>
             {item.capacity}
           </li>
           )

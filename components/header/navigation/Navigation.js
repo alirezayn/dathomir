@@ -1,20 +1,25 @@
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./Navigation.module.scss";
-import BestShop from "/bestshop/bestShop";
 import { Accordion } from "react-bootstrap";
 import { TfiClose } from "react-icons/tfi";
+import BestShop from "@/components/bestshop/BestShop";
 const Navigation = ({ show, func }) => {
+  
   //  const checkDispay = () =>{
   // if (window.innerWidth < "1024px"){
   // func()
   // }
   // }
+
   const navigationList = [
+  
     { name: "گوشی موبایل", list: ["اپل", "سامسونگ", "شیائومی"] },
     { name: "تبلت", list: ["اپل", "سامسونگ"] },
     { name: "لپ تاپ", list: ["ایسوس", "اپل", "ایسر", "لنوو"] },
+  
   ];
+  
   return (
     <>
       <nav className={`${styles.mainNav} ${show ? styles.show : styles.hide}`}>
