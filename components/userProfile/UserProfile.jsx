@@ -114,7 +114,7 @@ const UserProfile = () => {
                 return (
                   <InputGroup
                     size="default"
-                    className={width > 768 ? "w-25 mb-3" : "w-100"}
+                    className={width > 768 ? "w-50 mb-3" : "w-100 mb-3"}
                     key={index+1}
                   >
                     <InputGroup.Text id="inputGroup-sizing-default">
