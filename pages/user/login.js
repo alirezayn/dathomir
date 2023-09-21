@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 
 import styles from "./login.module.scss";
 import * as api from "../../api/api";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setToken } from "@/redux/features/UserReducer";
 import { useRouter } from "next/router";
 import Button from "react-bootstrap/Button";
@@ -11,11 +11,17 @@ import Image from "next/image";
 import Head from "next/head";
 
 const login = () => {
+  const user = useSelector(state=>state.user.token)
+  const router = useRouter();
+  if(user){
+    router.push('/user/dashboard')
+  }
   const dispatch = useDispatch();
   const username = useRef();
   const password = useRef();
-  const router = useRouter();
+
   const regex = new RegExp("^09(1[0-9]|3[1-9]|2[1-9])-?[0-9]{3}-?[0-9]{4}$");
+  const [wrongPass, setWronPass] = useState(false)
 
   const [show, setShow] = useState(false);
   const [wrongNumber, setWrongNumber] = useState(false);
@@ -52,7 +58,7 @@ const login = () => {
                 dispatch(setToken(response.data.token));
                 router.push("/user/dashboard");
               })
-              .catch((error) => console.log(error));
+              .catch(()=>setWronPass(true) );
           }
         })
         .catch((err) => console.log(err));
@@ -90,6 +96,7 @@ const login = () => {
               placeholder="شماره موبایل"
               ref={username}
               onChange={handlePhoneNumber}
+
             />
             {
               <label
@@ -108,7 +115,11 @@ const login = () => {
               type="password"
               placeholder="کلمه عبور"
               ref={password}
+              autoComplete={"true"}
             />
+            {wrongPass ?
+            <label style={{color:'red',fontWeight:"lighter"}}>نام کاربری یا کلمه عبور اشتباه است</label> : null
+            }
           </div>
           <Button variant="danger" type="submit">
             ثبت نام | ورود

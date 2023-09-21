@@ -17,13 +17,14 @@ import { profile, tabIcon } from "./userData";
 const UserProfile = () => {
   const user = useSelector((state) => state.user);
   const [key, setKey] = useState("پروفایل");
-  const [width, setWidth] = useState(0);
+  const [width, setWidth] = useState(800);
   useEffect(() => {
     window.addEventListener("resize", () => {
-      setWidth(window.innerWidth);
+      setWidth(()=>window.innerWidth);
     });
   }, []);
-
+  
+  console.log(width)
   const setNavKey = (e) => {
     setKey(e.target.title);
   };
@@ -43,6 +44,7 @@ const UserProfile = () => {
             width={100}
             height={100}
             alt="profile"
+            priority={true}
           />
           <div className={`${styles.details}`}>
             <span>نام : نام کاربر</span>
