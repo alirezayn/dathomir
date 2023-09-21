@@ -9,6 +9,7 @@ import { BsFilterLeft } from "react-icons/bs";
 const category =  ({ data, loading }) => {
 
   const [filter, setFilter] = useState({ model: [], capacity: [] });
+  
   const [sort, setSort] = useState("");
   const [show, setShow] = useState(false)
 

@@ -43,7 +43,7 @@ const AddToCart = ({ product }) => {
 
   return (
     <div className={`${styles.mainContainer}`}>
-      {item ? (
+      { item ? (
         <div className={`${styles.mainButton}`}>
           <button
             className={`${styles.plusMinus}`}

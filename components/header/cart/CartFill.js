@@ -26,7 +26,8 @@ const CartFill = ({ items }) => {
     <div className={`${styles.mainContainer}`}>
       <div className={`${styles.rightContainer}`}>
         <span className={`${styles.span}`}>سبد خرید شما</span>
-        {items.map((item) => {
+        {
+        items.map((item) => {
           return (
             <div className={`${styles.itemCart}`} key={item.id}>
               <div className={`${styles.rightItemContainer}`}>
@@ -62,17 +63,10 @@ const CartFill = ({ items }) => {
             </div>
           );
         })}
-        {/* <button onClick={() => dispatch(removeCart())}>Clear Cart</button> */}
+
       </div>
       <div className={`${styles.leftContainer}`}>
-        {Object.keys(order).length > 0 ? (
-          // <div style={{height:"200px"}}>
-          <CheckOrders />
-            // <Link href={"orders"}>ثبت سفارش</Link>
-          // </div>
-        ) : (
-          <Checkout />
-        )}
+        {Object.keys(order).length > 0 ? <CheckOrders /> : <Checkout />}
       </div>
     </div>
   );

@@ -75,6 +75,7 @@ export const getServerSideProps = async (context) => {
     singleProductsData = await singleProductsData.data;
     let products = await api.GET(`products/categories`);
     products = await products.data;
+    
     products.map((item) => {
       if (item.products.find((obj) => obj.name == singleProductsData.name)) {
         item.products.map((item) => dataOffers.items.push(item));
