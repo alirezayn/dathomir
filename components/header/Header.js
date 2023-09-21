@@ -52,11 +52,11 @@ const Header = () => {
           bestshop
         </Link>
         <div className={`${styles.rightContainer}`}>
-          <div className={`${styles.menuBox}`}> 
+          <div className={`${styles.menuBox}`}  onClick={navigationShowHandler}> 
             <RxHamburgerMenu
               className={`${styles.hamburgerMenu}`}
-              onClick={navigationShowHandler}
             />
+            دسته بندی
            </div>
         </div>
             <div className={`${styles.middleContainer}`}>

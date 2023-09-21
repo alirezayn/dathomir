@@ -76,13 +76,19 @@
         .menuBox{
             display: flex !important;
             align-items: center;
-            justify-content: center;
-            font-size: x-large;
-            width: 60px;
+            justify-content: space-around;
+            font-size: small;
+            width: auto;
+            padding: 5px;
             height: 30px;
             color: #918d8d;
             border-radius: 5px;
             transition: .5s;
+            cursor: pointer;
+            .hamburgerMenu{
+                margin-left: 5px;
+                color: #2d2d2d !important;
+            }
         } 
         .menuBox:hover{
             background-color: #e4e2e2bd;
