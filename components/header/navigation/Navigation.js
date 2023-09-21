@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./Navigation.module.scss";
-import BestShop from "@/components/bestshop/bestShop";
+import BestShop from "/bestshop/bestShop";
 import { Accordion } from "react-bootstrap";
 import { TfiClose } from "react-icons/tfi";
 const Navigation = ({ show, func }) => {
