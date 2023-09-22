@@ -13,6 +13,7 @@ const CheckOrders = () => {
         alignItems: "center",
         height: "150px",
         padding: "5px",
+        
       }}
     >
       <table style={{ width: "100%" }}>

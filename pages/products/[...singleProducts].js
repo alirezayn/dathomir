@@ -73,6 +73,7 @@ export const getServerSideProps = async (context) => {
       `products/name/${context.params.singleProducts}`
     );
     singleProductsData = await singleProductsData.data;
+    
     let products = await api.GET(`products/categories`);
     products = await products.data;
     

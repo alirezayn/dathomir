@@ -11,10 +11,24 @@ import { BsShieldFillCheck } from "react-icons/bs";
 import { MdInventory } from "react-icons/md";
 import Checkout from "./Checkout";
 import CheckOrders from "./CheckOrders";
+import { submitOrder, submitProducts } from "@/redux/features/OrderReducer";
 
-const CartFill = ({ items }) => {
+const CartFill = ({ items, getTotal, getDiscount, getAmount }) => {
+  const dispatch = useDispatch();
   const order = useSelector((state) => state.order.order);
-
+  const cart = useSelector((state) => state.cart);
+  useEffect(()=>{
+    if (items.length != Object.keys(order).length) {
+      dispatch(submitProducts(cart.map((item) => item)));
+      dispatch(
+        submitOrder({
+          price: getAmount,
+          discount: getDiscount,
+          total: getTotal,
+        })
+      );
+    }
+  },[])
   const data = [
     {
       color: "سفید",
@@ -26,8 +40,7 @@ const CartFill = ({ items }) => {
     <div className={`${styles.mainContainer}`}>
       <div className={`${styles.rightContainer}`}>
         <span className={`${styles.span}`}>سبد خرید شما</span>
-        {
-        items.map((item) => {
+        {items.map((item) => {
           return (
             <div className={`${styles.itemCart}`} key={item.id}>
               <div className={`${styles.rightItemContainer}`}>
@@ -63,7 +76,6 @@ const CartFill = ({ items }) => {
             </div>
           );
         })}
-
       </div>
       <div className={`${styles.leftContainer}`}>
         {Object.keys(order).length > 0 ? <CheckOrders /> : <Checkout />}

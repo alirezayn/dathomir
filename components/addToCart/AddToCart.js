@@ -6,7 +6,7 @@ import { FaTrashCan } from "react-icons/fa6";
 import { TbMinus, TbPlus } from "react-icons/tb";
 import ProductPrice from "./ProductPrice";
 import { RiShoppingCartFill } from "react-icons/ri";
-import { removeOrder } from "@/redux/features/OrderReducer";
+import { removeOrder, submitOrder, submitProducts } from "@/redux/features/OrderReducer";
 
 //-----------------------------------------------------
 
@@ -14,6 +14,7 @@ const AddToCart = ({ product }) => {
   const cart = useSelector((state) => state.cart);
   const order = useSelector((state) => state.order.order);
   const item = cart.find((item) => item.id === product.id);
+  console.log(item)
   const dispatch = useDispatch();
     
   //-----------------------------------------
@@ -39,6 +40,14 @@ const AddToCart = ({ product }) => {
 
   const decreaseQuantity = () => {
     dispatch(decrease(item));
+    dispatch(submitProducts(cart.map((item) => item)));
+    dispatch(
+        submitOrder({
+          price: order.price - item.price,
+          discount: order.discount - (item.price - item.discount),
+          total: order.price - item.price,
+        })
+    )
   };
 
   return (
