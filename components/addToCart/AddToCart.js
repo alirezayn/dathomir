@@ -14,7 +14,6 @@ const AddToCart = ({ product }) => {
   const cart = useSelector((state) => state.cart);
   const order = useSelector((state) => state.order.order);
   const item = cart.find((item) => item.id === product.id);
-  console.log(item)
   const dispatch = useDispatch();
     
   //-----------------------------------------
@@ -40,14 +39,15 @@ const AddToCart = ({ product }) => {
 
   const decreaseQuantity = () => {
     dispatch(decrease(item));
-    dispatch(submitProducts(cart.map((item) => item)));
-    dispatch(
-        submitOrder({
-          price: order.price - item.price,
-          discount: order.discount - (item.price - item.discount),
-          total: order.price - item.price,
-        })
-    )
+    
+    // dispatch(submitProducts(cart.map((item) => item)));
+    // dispatch(
+    //     submitOrder({
+    //       price: order.price - item.price,
+    //       discount: order.discount - (item.price - item.discount),
+    //       total: order.price - item.price,
+    //     })
+    // )
   };
 
   return (

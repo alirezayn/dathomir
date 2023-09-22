@@ -1,12 +1,14 @@
-import React, { Suspense } from "react";
-import { useSelector } from "react-redux";
+import React, { Suspense, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./cart.module.scss";
 import Head from "next/head";
 import EmptyCart from "@/components/header/cart/EmptyCart";
 import CartFill from "@/components/header/cart/CartFill";
+import { removeOrder } from "@/redux/features/OrderReducer";
 
 const cart = () => {
   const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch()
   const getAmount = cart.reduce(
     (amount, item) => amount + item.quantity * item.price,
     0
@@ -22,6 +24,12 @@ const cart = () => {
   getDiscount = getAmount - getDiscount;
 
   const getTotal = getAmount - getDiscount;
+    useEffect(()=>{
+      if(cart.length == 0){
+        dispatch(removeOrder())
+      }
+    },[])
+
   return (
     <>
       <Head>

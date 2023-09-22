@@ -1,9 +1,19 @@
+import { submitOrder, submitProducts } from "@/redux/features/OrderReducer";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-const CheckOrders = () => {
-  const order = useSelector((state) => state.order.order);
+const CheckOrders = ({ cart, getTotal, getDiscount, getAmount }) => {
+  const dispatch = useDispatch();
+  const router = useRouter()
+  const submitHandler = () => {
+    dispatch(
+      submitOrder({ price: getAmount, discount: getDiscount, total: getTotal })
+    );
+    dispatch(submitProducts(cart.map(item=>item)))
+    router.push('/checkout/orders')
+  };
   return (
     <div
       style={{
@@ -13,27 +23,26 @@ const CheckOrders = () => {
         alignItems: "center",
         height: "150px",
         padding: "5px",
-        
       }}
     >
       <table style={{ width: "100%" }}>
         <tbody>
           <tr>
             <td>قیمت</td>
-            <td>{order.price}</td>
+            <td>{getAmount}</td>
           </tr>
           <tr>
             <td>تخفیف</td>
-            <td>{order.discount}</td>
+            <td>{getDiscount}</td>
           </tr>
           <tr>
             <td>جمع</td>
-            <td>{order.totalPrice}</td>
+            <td>{getTotal}</td>
           </tr>
         </tbody>
       </table>
-      <Link
-        href={"/checkout/orders"}
+      <button
+        onClick={submitHandler}
         style={{
           display: "flex",
           justifyContent: "center",
@@ -44,10 +53,11 @@ const CheckOrders = () => {
           backgroundColor: "purple",
           color: "white",
           borderRadius: "5px",
+          border:"none"
         }}
       >
         مرحله بعد
-      </Link>
+      </button>
     </div>
   );
 };

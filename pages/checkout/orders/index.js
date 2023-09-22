@@ -12,7 +12,8 @@ import EmptyOrder from "@/components/header/cart/EmptyOrder";
 
 const orders = () => {
   const order = useSelector((state) => state.order);
-
+  const cart = useSelector(state=>state.cart)
+  // if(cart.length)
   const dispatch = useDispatch();
   
   useEffect(() => {
@@ -41,7 +42,7 @@ const orders = () => {
         bestshop فروشگاه اینترنتی
       </title>
     </Head>
-      {Object.keys( order.order).length > 0 ? (
+      {cart.length > 0 ? (
         <>
 
           <div className={`${styles.topContainer}`}>
