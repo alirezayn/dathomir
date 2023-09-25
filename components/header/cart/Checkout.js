@@ -6,6 +6,7 @@ import Toast from "react-bootstrap/Toast";
 import { ToastContainer } from "react-bootstrap";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import { numberSeperate } from "@/lib/numberSeperate";
 
 const Checkout = () => {
   const route = useRouter();
@@ -121,19 +122,19 @@ const Checkout = () => {
               <tr>
                 <td>کل قیمت :</td>
                 <td>
-                  {getAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                  {numberSeperate(getAmount)}
                 </td>
               </tr>
               <tr>
                 <td>تخفیف : </td>
                 <td>
-                  {getDiscount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                  {numberSeperate(getDiscount)}
                 </td>
               </tr>
               <tr>
                 <td>جمع :</td>
                 <td>
-                  {getTotal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                  {numberSeperate(getTotal)}
                 </td>
               </tr>
             </tbody>

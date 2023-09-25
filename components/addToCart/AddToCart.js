@@ -39,16 +39,12 @@ const AddToCart = ({ product }) => {
 
   const decreaseQuantity = () => {
     dispatch(decrease(item));
-    
-    // dispatch(submitProducts(cart.map((item) => item)));
-    // dispatch(
-    //     submitOrder({
-    //       price: order.price - item.price,
-    //       discount: order.discount - (item.price - item.discount),
-    //       total: order.price - item.price,
-    //     })
-    // )
   };
+  useEffect(()=>{
+    if(!localStorage.getItem('orders')){
+      dispatch(removeOrder())
+    }
+  },[cart])
 
   return (
     <div className={`${styles.mainContainer}`}>

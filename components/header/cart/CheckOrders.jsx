@@ -1,3 +1,4 @@
+import { numberSeperate } from "@/lib/numberSeperate";
 import { submitOrder, submitProducts } from "@/redux/features/OrderReducer";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -29,15 +30,15 @@ const CheckOrders = ({ cart, getTotal, getDiscount, getAmount }) => {
         <tbody>
           <tr>
             <td>قیمت</td>
-            <td>{getAmount}</td>
+            <td>{numberSeperate(getAmount)}</td>
           </tr>
           <tr>
             <td>تخفیف</td>
-            <td>{getDiscount}</td>
+            <td>{numberSeperate(getDiscount)}</td>
           </tr>
           <tr>
             <td>جمع</td>
-            <td>{getTotal}</td>
+            <td>{numberSeperate(getTotal)}</td>
           </tr>
         </tbody>
       </table>

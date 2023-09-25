@@ -17,22 +17,6 @@ const CartFill = ({ items, getTotal, getDiscount, getAmount }) => {
   const dispatch = useDispatch();
   const order = useSelector((state) => state.order.order);
 
-  // const cart = useSelector(state=>state.cart)
-  // const cart = useSelector((state) => state.cart);
-  // useEffect(() => {
-  //   if (Object.keys(order).length > 0) {
-  //     if (items.length > Object.keys(order).length) {
-  //       dispatch(submitProducts(items.map((item) => item)));
-  //       dispatch(
-  //         submitOrder({
-  //           price: getAmount,
-  //           discount: getDiscount,
-  //           total: getTotal,
-  //         })
-  //       );
-  //     }
-  //   }
-  // }, []);
   const data = [
     {
       color: "سفید",

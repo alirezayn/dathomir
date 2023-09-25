@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./productPrice.module.scss";
+import { numberSeperate } from "@/lib/numberSeperate";
 const ProductPrice = ({ price, discount }) => {
   return (
     <div className={`${styles.mainContainer}`}>
@@ -13,7 +14,7 @@ const ProductPrice = ({ price, discount }) => {
             height: "50px",
           }}
         >
-          {"قیمت"}&nbsp;{price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+          {"قیمت"}&nbsp;{numberSeperate(price)}
         </span>
       ) : (
         <>
@@ -24,11 +25,11 @@ const ProductPrice = ({ price, discount }) => {
               fontSize: "small",
             }}
           >
-            {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            {numberSeperate(price)}
           </h6>
           <h5 style={{ fontSize: "medium" }}>
             {"قیمت"}&nbsp;
-            {discount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            {numberSeperate(discount)}
           </h5>
         </>
       )}

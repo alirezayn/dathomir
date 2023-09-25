@@ -9,6 +9,7 @@ import { removeOrder } from "@/redux/features/OrderReducer";
 import Head from "next/head";
 import OrderBanner from "@/components/orderBanner/OrderBanner";
 import EmptyOrder from "@/components/header/cart/EmptyOrder";
+import { numberSeperate } from "@/lib/numberSeperate";
 
 const orders = () => {
   const order = useSelector((state) => state.order);
@@ -27,10 +28,10 @@ const orders = () => {
   
   let totalPrice =
     order.order.price &&
-    order.order.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    numberSeperate(order.order.price)
   const shippingPrice = 40000;
   let discount = order.order.discount &&
-  order.order.discount.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",");
+  numberSeperate(order.order.discount)
   const radioChecked = (e) => {
     setPayment(e.target.value);
     setChecked(e.target.id);
@@ -111,9 +112,7 @@ const orders = () => {
               <span className={`${styles.label}`}>
                 <h6>هزینه ارسال</h6>
                 <h6>
-                  {shippingPrice
-                    .toString()
-                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                  {numberSeperate(shippingPrice)}
                   &nbsp;{"تومان"}
                 </h6>
               </span>
@@ -126,9 +125,7 @@ const orders = () => {
               <label className={`${styles.label}`}>
                 <h6>قابل پرداخت</h6>
                 <h6>
-                  {(order.order.totalPrice + shippingPrice)
-                    .toString()
-                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                  {numberSeperate(order.order.totalPrice + shippingPrice)}
                   &nbsp;{"تومان"}
                 </h6>
               </label>

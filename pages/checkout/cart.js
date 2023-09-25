@@ -25,9 +25,9 @@ const cart = () => {
 
   const getTotal = getAmount - getDiscount;
     useEffect(()=>{
-      if(cart.length == 0){
-        dispatch(removeOrder())
-      }
+        if(localStorage.getItem('cart').length == 0){
+          dispatch(removeOrder())
+        }
     },[])
 
   return (
