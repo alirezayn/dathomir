@@ -26,8 +26,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 const IncredibleOffer = () => {
-
   const [data, setData] = useState([]);
+  const [width, setWidth] = useState(800)
   useEffect(() => {
     const incredibleUrl = async () => {
       let url = await api
@@ -36,42 +36,38 @@ const IncredibleOffer = () => {
         .catch((err) => console.log(err));
     };
     incredibleUrl();
+    window.addEventListener('resize',()=>{
+      setWidth(()=>window.innerWidth)
+    })
   }, []);
   return (
     <div className={`${styles.mainContainer}`}>
       <Swiper
         style={{
-          width:"95%"
+          width: "95%",
         }}
         slidesPerView={5}
         spaceBetween={0}
-        navigation={true}
+        navigation={ width >= 800 ? true : false }
         freeMode={true}
-        // pagination={{
-        //   clickable: true,
-        // }}
+
         breakpoints={{
           300: {
-            slidesPerView: 1,
-            navigation:false
+            slidesPerView: 1
           },
           400: {
-            slidesPerView: 2,
-            navigation:false
+            slidesPerView: 2
           },
           500: {
-            slidesPerView: 2,
-            navigation:false
+            slidesPerView: 2
           },
           640: {
             slidesPerView: 3,
-            spaceBetween: 0,
-            navigation:false
+            spaceBetween: 0
           },
           768: {
             slidesPerView: 4,
-            spaceBetween: 0,
-            navigation:false
+            spaceBetween: 0
           },
           800: {
             slidesPerView: 4,
@@ -85,40 +81,39 @@ const IncredibleOffer = () => {
             slidesPerView: 5,
             spaceBetween: 0,
           },
-          1200:{
-            slidesPerView:8,
+          1200: {
+            slidesPerView: 8,
             spaceBetween: 0,
-          }
+          },
         }}
-        modules={[FreeMode,Navigation]}
+        modules={[FreeMode, Navigation]}
         className="mySwiper"
       >
         <SwiperSlide>
-        <div className={`${styles.rightBox}`}>
-        <Image
-          src={"/images/amazingTypo.png"}
-          alt="پیشنهاد شگفت انگیز"
-          width={75}
-          height={68}
-          priority
-        />
-        <Image 
-          src={'/images/box.png'}
-          alt="باکس"
-          width={50}
-          height={50}
-        />
-        <Link href={'/products/incredible_offer'} className={`${styles.link}`}>مشاهده همه</Link>
-      </div>
+          <div className={`${styles.rightBox}`}>
+            <Image
+              src={"/images/amazingTypo.png"}
+              alt="پیشنهاد شگفت انگیز"
+              width={75}
+              height={68}
+              priority
+            />
+            <Image src={"/images/box.png"} alt="باکس" width={50} height={50} />
+            <Link
+              href={"/products/incredible_offer"}
+              className={`${styles.link}`}
+            >
+              مشاهده همه
+            </Link>
+          </div>
         </SwiperSlide>
         {data.map((item) => {
           return (
             <SwiperSlide key={item.id}>
               <IncerdibleofferCard products={item} key={item.id} />
             </SwiperSlide>
-              );
-            })}
-        
+          );
+        })}
       </Swiper>
       {/* <CardSlider>
       {data.map((item) => {
@@ -130,4 +125,4 @@ const IncredibleOffer = () => {
     </div>
   );
 };
-export default IncredibleOffer
+export default IncredibleOffer;

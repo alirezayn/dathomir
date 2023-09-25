@@ -40,6 +40,7 @@ const AddToCart = ({ product }) => {
   const decreaseQuantity = () => {
     dispatch(decrease(item));
   };
+  
   useEffect(()=>{
     if(!localStorage.getItem('orders')){
       dispatch(removeOrder())
